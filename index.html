@@ -72,7 +72,28 @@
             };
             
             console.log('Her response:', response);
-            alert('Response saved! Check console for details.');
+            
+            // Send email via FormSubmit
+            fetch('https://formsubmit.co/ajax/harshgupta25012002@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'Valentine Response',
+                    message: 'Date: ' + response.dateAnswer + '\nActivity: ' + response.activity + '\nValentine: ' + response.valentineAnswer + '\nTime: ' + response.timestamp
+                })
+            })
+            .then(function(resp) {
+                return resp.json();
+            })
+            .then(function(data) {
+                console.log('Email sent successfully!', data);
+            })
+            .catch(function(error) {
+                console.log('Email error:', error);
+            });
         }
 
         function renderIntro() {
