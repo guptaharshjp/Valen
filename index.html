@@ -98,54 +98,27 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .photo-card{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 .photo-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
 
-/* The image wrapper */
+/* ALL photos cropped to 800x600 — uniform 4:3 grid */
 .img-box{
   width:100%;
-  background:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  aspect-ratio:4/3;
   overflow:hidden;
+  background:#111;
+  display:block;
 }
-
-/* CONTAIN = full image always visible, no crop ever */
 .img-box img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
+  object-position:center center;
   display:block;
   transition:transform 0.4s ease;
 }
-.photo-card:hover .img-box img{transform:scale(1.02);}
+.photo-card:hover .img-box img{transform:scale(1.03);}
 
-/* --- PER-PHOTO sizes --- */
-
-/* Photo 1: square image */
-.p1 .img-box{aspect-ratio:1/1;}
-
-/* Photo 2 */
-.p2 .img-box{aspect-ratio:3/4;}
-
-/* Photo 3 */
-.p3 .img-box{aspect-ratio:3/4;}
-
-/* Photo 4 */
-.p4 .img-box{aspect-ratio:3/4;}
-
-/* Photo 5 */
-.p5 .img-box{aspect-ratio:3/4;}
-
-/* Photo 6 */
-.p6 .img-box{aspect-ratio:3/4;}
-
-/* Photo 7: landscape */
-.p7 .img-box{aspect-ratio:4/3;}
-
-/* Photo 8 */
-.p8 .img-box{aspect-ratio:3/4;}
-
-/* Photo 9 */
-.p9 .img-box{aspect-ratio:3/4;}
+/* Origin panel wider */
+.origin-card .img-box{aspect-ratio:16/9;}
+.origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
 
 /* Caption bar */
 .photo-caption{background:var(--ink);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(255,226,52,0.2);}
@@ -157,7 +130,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 /* Origin card: B&W hero panel */
 .origin-card{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;}
 .origin-card .img-box{aspect-ratio:1/1;}
-.origin-card img{width:100%;height:100%;object-fit:contain;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
+.origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
 
 .sfx-overlay{position:absolute;top:15px;left:15px;font-family:'Bangers',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;-webkit-text-stroke:3px var(--ink);text-shadow:4px 4px 0 var(--red);letter-spacing:3px;line-height:1.1;pointer-events:none;animation:sfxPulse 2s ease-in-out infinite;}
 @keyframes sfxPulse{0%,100%{transform:scale(1) rotate(-1deg);}50%{transform:scale(1.03) rotate(1deg);}}
@@ -435,7 +408,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
     <div class="origin-card">
       <div class="img-box" style="height:420px;">
-        <img src="ANA/1.jpeg" alt="The very beginning" style="width:100%;height:100%;object-fit:contain;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
+        <img src="files/1.jpeg" alt="The very beginning" style="width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
       </div>
       <div class="sfx-overlay">THE BEGINNING<br>OF A LEGEND ✦</div>
       <div class="origin-caption">
@@ -465,7 +438,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p2 acc-blue">
         <div class="panel-decoration">PAGE 02</div>
         <div class="img-box">
-          <img src="ANA/2.jpeg" alt="Baby Aman sunglasses">
+          <img src="files/2.jpeg" alt="Baby Aman sunglasses">
         </div>
         <div class="photo-caption"><span class="pcap-label">👶 BABY MODE 🕶️</span><span class="pcap-num">02</span></div>
       </div>
@@ -473,7 +446,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p3 acc-purple">
         <div class="panel-decoration">PAGE 03</div>
         <div class="img-box">
-          <img src="ANA/3.jpeg" alt="Kid Aman">
+          <img src="files/3.jpeg" alt="Kid Aman">
         </div>
         <div class="photo-caption"><span class="pcap-label">👦 GROWING UP ⬆️</span><span class="pcap-num">03</span></div>
       </div>
@@ -484,7 +457,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p4 acc-green">
         <div class="panel-decoration">PAGE 04</div>
         <div class="img-box">
-          <img src="ANA/4.jpeg" alt="Birthday cake">
+          <img src="files/4.jpeg" alt="Birthday cake">
         </div>
         <div class="photo-caption"><span class="pcap-label">🎂 CAKE BOSS</span><span class="pcap-num">04</span></div>
       </div>
@@ -492,7 +465,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p5 acc-orange">
         <div class="panel-decoration">PAGE 05</div>
         <div class="img-box">
-          <img src="ANA/5.jpeg" alt="Hello Aman">
+          <img src="files/5.jpeg" alt="Hello Aman">
         </div>
         <div class="photo-caption"><span class="pcap-label">📞 HELLO!</span><span class="pcap-num">05</span></div>
       </div>
@@ -500,7 +473,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p6 acc-pink">
         <div class="panel-decoration">PAGE 06</div>
         <div class="img-box">
-          <img src="ANA/6.jpeg" alt="Glow up">
+          <img src="files/6.jpeg" alt="Glow up">
         </div>
         <div class="photo-caption"><span class="pcap-label">✨ GLOW UP</span><span class="pcap-num">06</span></div>
       </div>
@@ -526,7 +499,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p7 acc-yellow">
         <div class="panel-decoration">PAGE 07</div>
         <div class="img-box">
-          <img src="ANA/7.jpeg" alt="Sunset vibes">
+          <img src="files/7.jpeg" alt="Sunset vibes">
         </div>
         <div class="photo-caption"><span class="pcap-label">🌇 SUNSET VIBES</span><span class="pcap-num">07</span></div>
       </div>
@@ -534,7 +507,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <div class="photo-card p8 acc-blue">
         <div class="panel-decoration">PAGE 08</div>
         <div class="img-box">
-          <img src="ANA/8.jpeg" alt="Didi and Aman">
+          <img src="files/8.jpeg" alt="Didi and Aman">
         </div>
         <div class="photo-caption"><span class="pcap-label">❤️ DIDI + BAUAA</span><span class="pcap-num">08</span></div>
       </div>
@@ -544,7 +517,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     <div class="photo-card p9 acc-purple">
       <div class="panel-decoration">FINAL — PAGE 09</div>
       <div class="img-box">
-        <img src="ANA/9.jpeg" alt="Mirror selfie">
+        <img src="files/9.jpeg" alt="Mirror selfie">
       </div>
       <div class="photo-caption"><span class="pcap-label">📸 CAMERA ROLL — PROTAGONIST CONFIRMED ✦</span><span class="pcap-num">09</span></div>
     </div>
@@ -563,7 +536,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     <div class="wish-wrapper">
       <div class="wish-card">
         <div class="wish-speaker">
-          <img class="wish-avatar" src="ANA/8.jpeg" alt="Didi">
+          <img class="wish-avatar" src="files/8.jpeg" alt="Didi">
           <div style="flex:1;">
             <span class="wish-name">Didi 🌙</span>
             <span class="wish-role">// PLAYER 1 — ALWAYS IN YOUR CORNER //</span>
