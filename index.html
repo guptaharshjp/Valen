@@ -1,194 +1,1377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        .animate-fade-in {
-            animation: fade-in 0.5s ease-out;
-        }
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Aman! ⚡</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Nunito:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d14;
+  --paper: #f4efe6;
+  --red: #ff2d55;
+  --blue: #00cfff;
+  --yellow: #ffe234;
+  --purple: #bf5fff;
+  --green: #00ffb2;
+  --orange: #ff6b00;
+  --panel: 3px solid #0d0d14;
+  --shadow: 5px 5px 0 #0d0d14;
+  --shadow-lg: 8px 8px 0 #0d0d14;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ========== LAYOUT: SPLIT SCREEN ========== */
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== LEFT: ANIME SIDE ===== */
+.anime-side {
+  width: 380px;
+  flex-shrink: 0;
+  background: var(--ink);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 4px solid var(--yellow);
+  z-index: 10;
+}
+
+/* Animated starfield bg */
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.1; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* Speed burst lines */
+.burst {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  opacity: 0.07;
+}
+
+.burst-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 300px;
+  background: linear-gradient(to top, var(--yellow), transparent);
+  transform-origin: bottom center;
+}
+
+/* Anime character SVG area */
+.anime-char-zone {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+}
+
+/* SVG Anime Character */
+.anime-svg {
+  width: 260px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255,226,52,0.4));
+  animation: charFloat 3s ease-in-out infinite;
+}
+
+@keyframes charFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Aura glow ring */
+.aura-ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--yellow);
+  opacity: 0.15;
+  animation: auraExpand 2s ease-out infinite;
+  bottom: 30%;
+}
+
+.aura-ring:nth-child(2) { animation-delay: 0.7s; width: 240px; height: 240px; border-color: var(--purple); }
+.aura-ring:nth-child(3) { animation-delay: 1.4s; width: 280px; height: 280px; border-color: var(--blue); }
+
+@keyframes auraExpand {
+  0% { transform: scale(0.8); opacity: 0.3; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Level badge */
+.level-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  padding: 4px 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  color: var(--ink);
+  letter-spacing: 2px;
+  box-shadow: var(--shadow);
+  z-index: 5;
+  animation: badgePop 1s ease-in-out infinite alternate;
+}
+
+@keyframes badgePop {
+  from { transform: rotate(-2deg) scale(1); }
+  to { transform: rotate(2deg) scale(1.05); }
+}
+
+/* Name title on anime side */
+.anime-name {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 10px 15px 20px;
+  width: 100%;
+}
+
+.anime-name .big {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5rem;
+  color: var(--yellow);
+  letter-spacing: 8px;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--red), 8px 8px 0 var(--purple);
+  display: block;
+  line-height: 1;
+  animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  from { filter: drop-shadow(0 0 8px var(--yellow)); }
+  to { filter: drop-shadow(0 0 20px var(--yellow)) drop-shadow(0 0 40px var(--orange)); }
+}
+
+.anime-name .sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--blue);
+  letter-spacing: 4px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Stats bar */
+.stats-bar {
+  position: relative;
+  z-index: 4;
+  width: calc(100% - 30px);
+  margin: 0 15px 15px;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.stat-row:last-child { margin-bottom: 0; }
+
+.stat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.5);
+  width: 60px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.stat-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 3px;
+  animation: fillIn 2s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes fillIn {
+  from { width: 0; }
+}
+
+.stat-val {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: white;
+  width: 28px;
+  text-align: right;
+}
+
+/* EQ visualizer at bottom of anime side */
+.eq-zone {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 35px;
+  padding-bottom: 15px;
+}
+
+.eq-b {
+  width: 6px;
+  background: var(--blue);
+  animation: eqA 0.4s ease-in-out infinite alternate;
+  border-radius: 3px 3px 0 0;
+}
+
+@keyframes eqA {
+  from { height: 4px; opacity: 0.4; }
+  to { height: 28px; opacity: 1; }
+}
+
+/* ===== RIGHT: CONTENT SIDE ===== */
+.content-side {
+  flex: 1;
+  background: var(--paper);
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Halftone bg overlay */
+.content-side::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(13,13,20,0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== HERO BANNER ===== */
+.hero-banner {
+  background: var(--ink);
+  padding: 25px 25px 20px;
+  border-bottom: 4px solid var(--yellow);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 15px,
+    rgba(255,226,52,0.04) 15px, rgba(255,226,52,0.04) 30px
+  );
+}
+
+.hb-title {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--yellow);
+  letter-spacing: 6px;
+  -webkit-text-stroke: 1px var(--red);
+  text-shadow: 3px 3px 0 var(--red);
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.hb-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.htag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  padding: 3px 10px;
+  border: 2px solid;
+  letter-spacing: 1px;
+}
+.htag.y { color: var(--ink); background: var(--yellow); border-color: var(--yellow); }
+.htag.b { color: var(--ink); background: var(--blue); border-color: var(--blue); }
+.htag.r { color: white; background: var(--red); border-color: var(--red); }
+.htag.p { color: white; background: var(--purple); border-color: var(--purple); }
+.htag.g { color: var(--ink); background: var(--green); border-color: var(--green); }
+
+/* ===== MANGA PANELS ===== */
+.section {
+  padding: 20px 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  color: var(--ink);
+  border-left: 5px solid var(--red);
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+/* Big origin panel */
+.origin-panel {
+  border: var(--panel);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--ink);
+  margin-bottom: 3px;
+}
+
+.origin-panel img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%) contrast(1.3) brightness(1.05);
+}
+
+.origin-panel .panel-sfx {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: 'Bangers', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: white;
+  -webkit-text-stroke: 3px var(--ink);
+  text-shadow: 3px 3px 0 var(--red);
+  letter-spacing: 3px;
+  line-height: 1.1;
+  animation: sfxPulse 2s ease-in-out infinite;
+}
+
+@keyframes sfxPulse {
+  0%,100% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.04) rotate(1deg); }
+}
+
+.origin-panel .panel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--yellow);
+  border-top: 3px solid var(--ink);
+  padding: 8px 15px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 2-col grid panels */
+.panel-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.panel-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.manga-panel {
+  border: var(--panel);
+  overflow: hidden;
+  position: relative;
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.manga-panel img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: contrast(1.1) saturate(1.05);
+  transition: transform 0.4s ease;
+}
+
+.manga-panel:hover img { transform: scale(1.06); }
+
+.manga-panel .plabel {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: var(--ink);
+  color: var(--yellow);
+  font-family: 'Bangers', cursive;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  padding: 2px 8px;
+  border: 2px solid var(--yellow);
+}
+
+.manga-panel .pnum {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--red);
+  color: white;
+  font-family: 'Bangers', cursive;
+  font-size: 0.9rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+/* ===== SFX BAR ===== */
+.sfx-bar {
+  background: var(--red);
+  border-top: var(--panel);
+  border-bottom: var(--panel);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 0;
+}
+
+.sfx-word {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 4px;
+  white-space: nowrap;
+  display: inline-block;
+  animation: sfxBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes sfxBounce {
+  0%,100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
+}
+
+.sfx-sep {
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ===== THOUGHT BUBBLE WISH ===== */
+.wish-section {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.thought-bubble {
+  background: white;
+  border: var(--panel);
+  border-radius: 20px;
+  padding: 28px 30px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Bubble tail */
+.thought-bubble::before {
+  content: '●';
+  position: absolute;
+  top: -22px;
+  left: 35px;
+  color: var(--ink);
+  font-size: 8px;
+}
+.thought-bubble::after {
+  content: '●';
+  position: absolute;
+  top: -32px;
+  left: 25px;
+  color: var(--ink);
+  font-size: 5px;
+}
+
+.tb-from {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed rgba(13,13,20,0.15);
+}
+
+.tb-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  object-fit: cover;
+  object-position: top;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tb-name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1rem;
+  color: var(--purple);
+}
+
+.tb-role {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(13,13,20,0.5);
+  letter-spacing: 2px;
+}
+
+.wish-text {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+.wish-text .w-hi { font-family: 'Permanent Marker', cursive; color: var(--red); font-size: 1.1em; }
+.wish-text .w-box {
+  display: inline-block;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  font-family: 'Bangers', cursive;
+  font-size: 1.25em;
+  letter-spacing: 3px;
+  padding: 0 8px;
+  transform: rotate(-1deg);
+  margin: 0 2px;
+}
+.wish-text .w-love {
+  display: block;
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  color: var(--red);
+  letter-spacing: 4px;
+  -webkit-text-stroke: 1px var(--ink);
+  margin-top: 10px;
+  text-align: center;
+  animation: lovePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes lovePulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.wish-sign {
+  font-family: 'Permanent Marker', cursive;
+  text-align: right;
+  color: var(--purple);
+  font-size: 1.1rem;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 2px dashed rgba(13,13,20,0.15);
+}
+
+/* ===== DRAW SECTION ===== */
+.draw-section {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.draw-header {
+  background: var(--ink);
+  border: var(--panel);
+  border-bottom: none;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dh-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.4rem;
+  color: var(--yellow);
+  letter-spacing: 4px;
+}
+
+.dh-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--blue);
+  letter-spacing: 2px;
+  margin-top: 3px;
+}
+
+.pencil-anim {
+  font-size: 2.2rem;
+  animation: pencilSpin 2s ease-in-out infinite;
+}
+
+@keyframes pencilSpin {
+  0%,100% { transform: rotate(-15deg) scale(1); }
+  50% { transform: rotate(15deg) scale(1.1); }
+}
+
+.canvas-container {
+  border: var(--panel);
+  background: white;
+  position: relative;
+  cursor: crosshair;
+}
+
+#drawCanvas {
+  display: block;
+  width: 100%;
+  touch-action: none;
+}
+
+.canvas-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  pointer-events: none;
+  font-family: 'Bangers', cursive;
+  color: rgba(13,13,20,0.08);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  letter-spacing: 4px;
+  line-height: 1.7;
+  width: 85%;
+}
+
+.draw-tools {
+  background: var(--paper);
+  border: var(--panel);
+  border-top: none;
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+.tbtn {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--ink);
+  background: white;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+}
+
+.tbtn:hover, .tbtn.on { background: var(--yellow); box-shadow: 3px 3px 0 var(--ink); transform: translate(-1px,-1px); }
+
+.cdot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.cdot:hover, .cdot.on { transform: scale(1.3); box-shadow: 2px 2px 0 var(--ink); }
+
+.bslider {
+  -webkit-appearance: none;
+  height: 5px;
+  background: var(--ink);
+  width: 75px;
+  cursor: pointer;
+}
+
+.bslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  background: var(--red);
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.act-btn {
+  font-family: 'Bangers', cursive;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  border: 3px solid var(--ink);
+  padding: 5px 12px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: 0.1s;
+}
+
+.act-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+.act-btn.clr { background: var(--red); color: white; }
+.act-btn.sav { background: var(--green); color: var(--ink); }
+
+.divider-line {
+  width: 2px;
+  height: 26px;
+  background: var(--ink);
+  margin: 0 2px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--ink);
+  border-top: 4px solid var(--yellow);
+  text-align: center;
+  padding: 30px 20px 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-main {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--yellow);
+  letter-spacing: 5px;
+  text-shadow: 3px 3px 0 var(--red);
+  animation: ftGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes ftGlow {
+  from { filter: drop-shadow(0 0 5px var(--yellow)); }
+  to { filter: drop-shadow(0 0 15px var(--yellow)); }
+}
+
+.footer-eq {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 28px;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.feq-b {
+  width: 5px;
+  border-radius: 3px 3px 0 0;
+  animation: eqA 0.4s ease-in-out infinite alternate;
+}
+
+.footer-credit {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .app-wrapper { flex-direction: column; }
+
+  .anime-side {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 4px solid var(--yellow);
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .anime-char-zone {
+    flex: none;
+    width: auto;
+    padding: 0;
+  }
+
+  .anime-svg { width: 100px; }
+
+  .anime-name { padding: 0; text-align: left; flex: 1; }
+  .anime-name .big { font-size: 2.5rem; }
+
+  .stats-bar { display: none; }
+  .eq-zone { display: none; }
+  .aura-ring { display: none; }
+
+  .level-badge { top: 8px; right: 8px; font-size: 0.75rem; }
+
+  .panel-grid-3 { grid-template-columns: 1fr 1fr; }
+  .manga-panel img { height: 150px; }
+  .origin-panel img { height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .panel-grid-2 { grid-template-columns: 1fr; }
+  .panel-grid-3 { grid-template-columns: 1fr; }
+  .manga-panel img { height: 200px; }
+}
+</style>
 </head>
 <body>
-    <div id="app"></div>
 
-    <script>
-        var stage = 'intro';
-        var noClickCount = 0;
-        var dateChoice = '';
-        var activityChoice = '';
+<div class="app-wrapper">
 
-        function getNoButtonStyle() {
-            var sizes = ['text-lg px-6 py-3', 'text-base px-4 py-2', 'text-sm px-3 py-1.5', 'text-xs px-2 py-1'];
-            return sizes[Math.min(noClickCount, sizes.length - 1)];
-        }
+  <!-- ===== LEFT: ANIME SIDE ===== -->
+  <div class="anime-side">
+    <!-- Starfield -->
+    <div class="starfield" id="starfield"></div>
 
-        function getYesButtonStyle() {
-            var sizes = ['text-lg px-6 py-3', 'text-xl px-8 py-4', 'text-2xl px-12 py-6', 'text-3xl px-16 py-8'];
-            return sizes[Math.min(noClickCount, sizes.length - 1)];
-        }
+    <!-- Speed burst -->
+    <div class="burst" id="burst"></div>
 
-        function getNoButtonText() {
-            var texts = ['No', 'Are you sure?', 'Really?', 'Please?'];
-            return texts[Math.min(noClickCount, texts.length - 1)];
-        }
+    <!-- Aura rings -->
+    <div class="aura-ring"></div>
+    <div class="aura-ring"></div>
+    <div class="aura-ring"></div>
 
-        function handleNo() {
-            noClickCount = noClickCount + 1;
-            render();
-        }
+    <!-- Level badge -->
+    <div class="level-badge">LVL UP ⚡</div>
 
-        function setStageFunc(newStage, choice) {
-            if (choice) {
-                if (newStage === 'question2') {
-                    dateChoice = 'YES';
-                } else if (newStage === 'valentine') {
-                    activityChoice = choice;
-                }
-            }
-            stage = newStage;
-            render();
-        }
+    <!-- Character -->
+    <div class="anime-char-zone">
+      <!-- SVG Anime character: boy with glasses, headphones, holding phone/gadget -->
+      <svg class="anime-svg" viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Glow aura behind -->
+        <ellipse cx="130" cy="300" rx="90" ry="30" fill="#ffe234" opacity="0.15"/>
 
-        function sendResponse() {
-            var response = {
-                dateAnswer: dateChoice,
-                activity: activityChoice,
-                valentineAnswer: 'YES',
-                timestamp: new Date().toLocaleString()
-            };
-            
-            console.log('Her response:', response);
-            
-            // Send email via FormSubmit
-            fetch('https://formsubmit.co/ajax/harshgupta25012002@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: 'Valentine Response',
-                    message: 'Date: ' + response.dateAnswer + '\nActivity: ' + response.activity + '\nValentine: ' + response.valentineAnswer + '\nTime: ' + response.timestamp
-                })
-            })
-            .then(function(resp) {
-                return resp.json();
-            })
-            .then(function(data) {
-                console.log('Email sent successfully!', data);
-            })
-            .catch(function(error) {
-                console.log('Email error:', error);
-            });
-        }
+        <!-- Body / hoodie -->
+        <rect x="65" y="200" width="130" height="120" rx="18" fill="#2a2a3a"/>
+        <!-- Hoodie details -->
+        <rect x="90" y="200" width="80" height="15" rx="5" fill="#1a1a28"/>
+        <circle cx="130" cy="207" r="6" fill="#3a3a4a"/>
 
-        function renderIntro() {
-            return '<div class="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-red-100 flex items-center justify-center p-4">' +
-                '<div class="text-center max-w-md animate-fade-in">' +
-                '<div class="mb-8 animate-bounce">' +
-                '<div class="text-9xl">&#10084;&#65039;</div>' +
-                '</div>' +
-                '<h1 class="text-4xl font-bold text-gray-800 mb-4">Hey There!</h1>' +
-                '<p class="text-xl text-gray-700 mb-8">I made something special just for you...</p>' +
-                '<button onclick="setStageFunc(\'question1\')" class="bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:scale-110 transition-transform duration-200 shadow-lg">Open It</button>' +
-                '</div></div>';
-        }
+        <!-- Hoodie strings -->
+        <line x1="122" y1="213" x2="115" y2="240" stroke="#ffe234" stroke-width="2" stroke-linecap="round"/>
+        <line x1="138" y1="213" x2="145" y2="240" stroke="#ffe234" stroke-width="2" stroke-linecap="round"/>
 
-        function renderQuestion1() {
-            var html = '<div class="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 flex items-center justify-center p-4">' +
-                '<div class="text-center max-w-md bg-white rounded-3xl p-8 shadow-2xl">' +
-                '<div class="text-7xl mb-6">&#10024;</div>' +
-                '<h2 class="text-3xl font-bold text-gray-800 mb-6">Will you go on a date with me?</h2>' +
-                '<div class="flex gap-4 justify-center items-center">' +
-                '<button onclick="setStageFunc(\'question2\', \'YES\')" class="bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full font-bold hover:scale-105 transition-all duration-200 shadow-lg ' + getYesButtonStyle() + '">Yes!</button>' +
-                '<button onclick="handleNo()" class="bg-gradient-to-r from-gray-400 to-gray-600 text-white rounded-full font-bold hover:scale-95 transition-all duration-200 ' + getNoButtonStyle() + '">' + getNoButtonText() + '</button>' +
-                '</div>';
-            
-            if (noClickCount > 0) {
-                html += '<p class="mt-4 text-sm text-gray-600 animate-fade-in">The Yes button looks better, doesn\'t it?</p>';
-            }
-            
-            html += '</div></div>';
-            return html;
-        }
+        <!-- Sleeves -->
+        <rect x="40" y="205" width="35" height="85" rx="16" fill="#2a2a3a"/>
+        <rect x="185" y="205" width="35" height="85" rx="16" fill="#2a2a3a"/>
 
-        function renderQuestion2() {
-            return '<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center p-4">' +
-                '<div class="text-center max-w-md bg-white rounded-3xl p-8 shadow-2xl">' +
-                '<div class="text-7xl mb-6">&#9749;</div>' +
-                '<h2 class="text-3xl font-bold text-gray-800 mb-6">How about coffee or dinner?</h2>' +
-                '<div class="space-y-4">' +
-                '<button onclick="setStageFunc(\'valentine\', \'Coffee\')" class="w-full bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-200 shadow-lg">Coffee sounds perfect!</button>' +
-                '<button onclick="setStageFunc(\'valentine\', \'Dinner\')" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-200 shadow-lg">Dinner would be amazing!</button>' +
-                '<button onclick="setStageFunc(\'valentine\', \'Surprise\')" class="w-full bg-gradient-to-r from-green-400 to-teal-500 text-white px-6 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-200 shadow-lg">Surprise me!</button>' +
-                '</div></div></div>';
-        }
+        <!-- Hands -->
+        <ellipse cx="57" cy="294" rx="18" ry="15" fill="#c8845a"/>
+        <ellipse cx="203" cy="294" rx="18" ry="15" fill="#c8845a"/>
 
-        function renderValentine() {
-            return '<div class="min-h-screen bg-gradient-to-br from-red-100 via-pink-100 to-purple-100 flex items-center justify-center p-4">' +
-                '<div class="text-center max-w-md bg-white rounded-3xl p-8 shadow-2xl">' +
-                '<div class="text-7xl mb-6">&#128197;</div>' +
-                '<h2 class="text-3xl font-bold text-gray-800 mb-6">One more thing...</h2>' +
-                '<p class="text-xl text-gray-700 mb-6">Will you be my Valentine?</p>' +
-                '<div class="flex gap-4 justify-center">' +
-                '<button onclick="sendResponse(); setStageFunc(\'final\')" class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-12 py-4 rounded-full text-2xl font-bold hover:scale-110 transition-transform duration-200 shadow-lg animate-pulse">YES!</button>' +
-                '</div>' +
-                '<p class="mt-6 text-sm text-gray-500">(There is only one right answer here)</p>' +
-                '</div></div>';
-        }
+        <!-- Phone/gadget in right hand -->
+        <rect x="190" y="270" width="26" height="44" rx="4" fill="#111"/>
+        <rect x="193" y="275" width="20" height="32" rx="2" fill="#00cfff" opacity="0.7"/>
+        <rect x="193" y="275" width="20" height="32" rx="2" fill="none" stroke="#0d0d14" stroke-width="1"/>
+        <!-- Screen content: birthday cake emoji representation -->
+        <text x="203" y="295" text-anchor="middle" font-size="12">🎂</text>
 
-        function renderFinal() {
-            var hearts = '';
-            for (var i = 0; i < 20; i++) {
-                var left = Math.random() * 100;
-                var top = Math.random() * 100;
-                var delay = Math.random() * 2;
-                var size = 20 + Math.random() * 30;
-                hearts += '<div class="absolute text-red-400 animate-float" style="left: ' + left + '%; top: ' + top + '%; animation-delay: ' + delay + 's; font-size: ' + size + 'px; opacity: 0.3;">&#10084;&#65039;</div>';
-            }
+        <!-- Neck -->
+        <rect x="117" y="185" width="26" height="22" rx="4" fill="#c8845a"/>
 
-            return '<div class="min-h-screen bg-gradient-to-br from-pink-200 via-red-200 to-purple-200 flex items-center justify-center p-4 overflow-hidden relative">' +
-                '<div class="absolute inset-0 flex items-center justify-center">' + hearts + '</div>' +
-                '<div class="text-center max-w-md bg-white rounded-3xl p-8 shadow-2xl relative z-10">' +
-                '<div class="mb-6"><div class="text-8xl animate-bounce">&#10084;&#65039;</div></div>' +
-                '<h2 class="text-4xl font-bold text-gray-800 mb-4">Yay!</h2>' +
-                '<p class="text-xl text-gray-700 mb-6">I am so happy you said yes!</p>' +
-                '<p class="text-lg text-gray-600 mb-8">I will text you the details soon. Can not wait!</p>' +
-                '<div class="text-6xl mb-4">&#127881;&#10084;&#65039;&#127801;</div>' +
-                '<p class="text-sm text-gray-500 mt-8">Her choice: ' + activityChoice + '</p>' +
-                '</div></div>';
-        }
+        <!-- Head -->
+        <ellipse cx="130" cy="148" rx="58" ry="60" fill="#c8845a"/>
 
-        function render() {
-            var app = document.getElementById('app');
-            if (stage === 'intro') {
-                app.innerHTML = renderIntro();
-            } else if (stage === 'question1') {
-                app.innerHTML = renderQuestion1();
-            } else if (stage === 'question2') {
-                app.innerHTML = renderQuestion2();
-            } else if (stage === 'valentine') {
-                app.innerHTML = renderValentine();
-            } else if (stage === 'final') {
-                app.innerHTML = renderFinal();
-            }
-        }
+        <!-- Hair top — spiky anime style -->
+        <path d="M72 130 Q75 80 95 70 Q105 60 115 65 Q112 50 125 45 Q132 35 140 48 Q148 38 158 55 Q170 58 175 72 Q188 85 186 130" fill="#1a1a1a" stroke="#0d0d14" stroke-width="1"/>
+        <!-- Hair spikes -->
+        <path d="M100 70 Q92 45 105 38 Q108 55 100 70Z" fill="#1a1a1a"/>
+        <path d="M120 55 Q118 30 132 25 Q134 45 120 55Z" fill="#1a1a1a"/>
+        <path d="M145 52 Q150 28 162 35 Q156 50 145 52Z" fill="#1a1a1a"/>
+        <path d="M165 68 Q178 48 186 58 Q176 68 165 68Z" fill="#1a1a1a"/>
+        <!-- Side hair -->
+        <path d="M72 130 Q62 140 65 165 Q70 175 78 168 Q72 148 75 135Z" fill="#1a1a1a"/>
+        <path d="M188 130 Q198 140 195 165 Q190 175 182 168 Q188 148 185 135Z" fill="#1a1a1a"/>
 
-        render();
-    </script>
+        <!-- Ears -->
+        <ellipse cx="73" cy="152" rx="10" ry="13" fill="#c8845a"/>
+        <ellipse cx="187" cy="152" rx="10" ry="13" fill="#c8845a"/>
+
+        <!-- Ear inner -->
+        <ellipse cx="73" cy="152" rx="6" ry="8" fill="#b8704a" opacity="0.5"/>
+        <ellipse cx="187" cy="152" rx="6" ry="8" fill="#b8704a" opacity="0.5"/>
+
+        <!-- Headphones -->
+        <path d="M73 130 Q75 90 130 88 Q185 90 187 130" fill="none" stroke="#ffe234" stroke-width="8" stroke-linecap="round"/>
+        <rect x="60" y="130" width="22" height="28" rx="8" fill="#ffe234" stroke="#0d0d14" stroke-width="2"/>
+        <rect x="178" y="130" width="22" height="28" rx="8" fill="#ffe234" stroke="#0d0d14" stroke-width="2"/>
+        <rect x="64" y="134" width="14" height="20" rx="6" fill="#ff6b00"/>
+        <rect x="182" y="134" width="14" height="20" rx="6" fill="#ff6b00"/>
+
+        <!-- Glasses -->
+        <rect x="88" y="145" width="32" height="22" rx="6" fill="none" stroke="#0d0d14" stroke-width="2.5"/>
+        <rect x="140" y="145" width="32" height="22" rx="6" fill="none" stroke="#0d0d14" stroke-width="2.5"/>
+        <!-- Lens tint -->
+        <rect x="89" y="146" width="30" height="20" rx="5" fill="#00cfff" opacity="0.2"/>
+        <rect x="141" y="146" width="30" height="20" rx="5" fill="#00cfff" opacity="0.2"/>
+        <!-- Bridge -->
+        <line x1="120" y1="156" x2="140" y2="156" stroke="#0d0d14" stroke-width="2.5"/>
+        <!-- Temples -->
+        <line x1="88" y1="156" x2="73" y2="154" stroke="#0d0d14" stroke-width="2"/>
+        <line x1="172" y1="156" x2="187" y2="154" stroke="#0d0d14" stroke-width="2"/>
+
+        <!-- Eyes behind glasses -->
+        <ellipse cx="104" cy="156" rx="8" ry="7" fill="#1a1a1a"/>
+        <ellipse cx="156" cy="156" rx="8" ry="7" fill="#1a1a1a"/>
+        <!-- Eye shine -->
+        <circle cx="107" cy="153" r="2.5" fill="white"/>
+        <circle cx="159" cy="153" r="2.5" fill="white"/>
+        <!-- Eye shine 2 -->
+        <circle cx="100" cy="159" r="1.5" fill="white" opacity="0.5"/>
+
+        <!-- Eyebrows -->
+        <path d="M90 143 Q104 138 118 141" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M142 141 Q156 138 170 143" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Nose -->
+        <path d="M127 165 Q130 172 133 165" fill="none" stroke="#b8704a" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Smile -->
+        <path d="M115 178 Q130 190 145 178" fill="none" stroke="#8a4a2a" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Cheek blush -->
+        <ellipse cx="90" cy="172" rx="12" ry="7" fill="#ff9999" opacity="0.3"/>
+        <ellipse cx="170" cy="172" rx="12" ry="7" fill="#ff9999" opacity="0.3"/>
+
+        <!-- Music notes floating -->
+        <text x="30" y="110" font-size="18" fill="#ffe234" opacity="0.8" style="animation: none">♪</text>
+        <text x="210" y="95" font-size="14" fill="#00cfff" opacity="0.8">♫</text>
+        <text x="20" y="75" font-size="12" fill="#bf5fff" opacity="0.6">♩</text>
+
+        <!-- Sparkles around -->
+        <text x="195" y="155" font-size="16" fill="#ffe234">✦</text>
+        <text x="25" y="160" font-size="12" fill="#ff2d55">✦</text>
+        <text x="205" y="200" font-size="10" fill="#00ffb2">★</text>
+
+        <!-- Legs -->
+        <rect x="95" y="310" width="40" height="60" rx="10" fill="#1a1a28"/>
+        <rect x="125" y="310" width="40" height="60" rx="10" fill="#1a1a28"/>
+
+        <!-- Shoes -->
+        <ellipse cx="115" cy="370" rx="22" ry="10" fill="#ffe234" stroke="#0d0d14" stroke-width="2"/>
+        <ellipse cx="145" cy="370" rx="22" ry="10" fill="#ffe234" stroke="#0d0d14" stroke-width="2"/>
+
+        <!-- "BAUAA" text on hoodie -->
+        <text x="130" y="260" text-anchor="middle" font-family="'Bangers', cursive" font-size="13" fill="#ffe234" letter-spacing="3" opacity="0.8">BAUAA</text>
+        <text x="130" y="275" text-anchor="middle" font-family="'Share Tech Mono', monospace" font-size="8" fill="rgba(255,255,255,0.4)" letter-spacing="2">v2.0</text>
+      </svg>
+    </div>
+
+    <!-- Name -->
+    <div class="anime-name">
+      <span class="big">AMAN</span>
+      <span class="sub">// PROTAGONIST MODE ACTIVE //</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-row">
+        <span class="stat-label">MUSIC</span>
+        <div class="stat-track"><div class="stat-fill" style="width:95%;background:var(--blue);"></div></div>
+        <span class="stat-val" style="color:var(--blue);">95</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">GADGETS</span>
+        <div class="stat-track"><div class="stat-fill" style="width:90%;background:var(--purple);animation-delay:0.2s"></div></div>
+        <span class="stat-val" style="color:var(--purple);">90</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">PSYCHOLOGY</span>
+        <div class="stat-track"><div class="stat-fill" style="width:88%;background:var(--green);animation-delay:0.4s"></div></div>
+        <span class="stat-val" style="color:var(--green);">88</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">SWAG</span>
+        <div class="stat-track"><div class="stat-fill" style="width:99%;background:var(--yellow);animation-delay:0.6s"></div></div>
+        <span class="stat-val" style="color:var(--yellow);">99</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">BAUAA LVL</span>
+        <div class="stat-track"><div class="stat-fill" style="width:100%;background:var(--red);animation-delay:0.8s"></div></div>
+        <span class="stat-val" style="color:var(--red);">MAX</span>
+      </div>
+    </div>
+
+    <!-- EQ -->
+    <div class="eq-zone" id="eqZone"></div>
+  </div>
+
+  <!-- ===== RIGHT: CONTENT ===== -->
+  <div class="content-side">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="hb-title">HAPPY BIRTHDAY!</div>
+      <div class="hb-tags">
+        <span class="htag y">🎌 ANIME SOUL</span>
+        <span class="htag b">🧠 PSYCH +99</span>
+        <span class="htag r">🎸 MUSIC ON</span>
+        <span class="htag p">📱 GADGET FREAK</span>
+        <span class="htag g">⚡ FINAL BOSS</span>
+      </div>
+    </div>
+
+    <!-- CHAPTER 1: ORIGIN STORY -->
+    <div class="section">
+      <div class="section-title">📖 CHAPTER 001: ORIGIN STORY</div>
+      <div class="origin-panel">
+        <img src="ANA/1.jpeg" alt="Origin — the beginning">
+        <div class="panel-sfx">THE BEGINNING<br>OF A LEGEND ✦</div>
+        <div class="panel-caption">
+          <span>📼 THROWBACK MODE ACTIVATED</span>
+          <span style="margin-left:auto;font-size:0.8rem;opacity:0.6;">CHAPTER 1 / PAGE 1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SFX BAR -->
+    <div class="sfx-bar">
+      <span class="sfx-word" style="color:var(--yellow);-webkit-text-stroke:2px var(--ink);animation-delay:0s">POW!</span>
+      <span class="sfx-sep">★</span>
+      <span class="sfx-word" style="color:white;-webkit-text-stroke:2px var(--ink);animation-delay:0.3s">ZAP!</span>
+      <span class="sfx-sep">★</span>
+      <span class="sfx-word" style="color:var(--yellow);-webkit-text-stroke:2px var(--ink);animation-delay:0.6s">BOOM!</span>
+      <span class="sfx-sep">★</span>
+      <span class="sfx-word" style="color:white;-webkit-text-stroke:2px var(--ink);animation-delay:0.9s">LEVEL UP!</span>
+      <span class="sfx-sep">★</span>
+      <span class="sfx-word" style="color:var(--yellow);-webkit-text-stroke:2px var(--ink);animation-delay:1.2s">WOOSH!</span>
+    </div>
+
+    <!-- CHAPTER 2: THE ARC -->
+    <div class="section" style="margin-top:20px;">
+      <div class="section-title">⚡ CHAPTER 002: THE ARC</div>
+      <div class="panel-grid-2">
+        <div class="manga-panel">
+          <img src="ANA/2.jpeg" alt="Baby Aman">
+          <span class="pnum">02</span>
+          <span class="plabel">BABY MODE 🕶️</span>
+        </div>
+        <div class="manga-panel">
+          <img src="ANA/3.jpeg" alt="Kid Aman">
+          <span class="pnum">03</span>
+          <span class="plabel">GROWING UP ⬆️</span>
+        </div>
+      </div>
+      <div class="panel-grid-3">
+        <div class="manga-panel">
+          <img src="ANA/4.jpeg" alt="Birthday cake">
+          <span class="pnum">04</span>
+          <span class="plabel">CAKE BOSS 🎂</span>
+        </div>
+        <div class="manga-panel">
+          <img src="ANA/5.jpeg" alt="Toddler Aman">
+          <span class="pnum">05</span>
+          <span class="plabel">HELLO! 📞</span>
+        </div>
+        <div class="manga-panel">
+          <img src="ANA/6.jpeg" alt="Aman recent">
+          <span class="pnum">06</span>
+          <span class="plabel">GLOW UP ✨</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAPTER 3: PRESENT DAY -->
+    <div class="section" style="margin-top:3px;">
+      <div class="section-title">🌅 CHAPTER 003: PROTAGONIST ERA</div>
+      <div class="panel-grid-2">
+        <div class="manga-panel">
+          <img src="ANA/7.jpeg" alt="Aman sunset">
+          <span class="pnum">07</span>
+          <span class="plabel">SUNSET VIBES 🌇</span>
+        </div>
+        <div class="manga-panel">
+          <img src="ANA/8.jpeg" alt="Didi and Aman">
+          <span class="pnum">08</span>
+          <span class="plabel">DIDI + BAUAA ❤️</span>
+        </div>
+      </div>
+      <div class="manga-panel" style="margin-top:3px;">
+        <img src="ANA/9.jpeg" alt="Mirror selfie" style="height:220px;">
+        <span class="pnum">09</span>
+        <span class="plabel">CAMERA ROLL 📸</span>
+      </div>
+    </div>
+
+    <!-- WISH -->
+    <div class="wish-section">
+      <div class="section-title">💬 DIDI'S MESSAGE</div>
+      <div class="thought-bubble">
+        <div class="tb-from">
+          <img class="tb-avatar" src="ANA/8.jpeg" alt="Didi">
+          <div>
+            <div class="tb-name">Didi 🌙</div>
+            <div class="tb-role">// PLAYER 1 — ALWAYS IN YOUR CORNER //</div>
+          </div>
+        </div>
+        <div class="wish-text">
+          <span class="w-hi">Happy Birthday Bauaa! 🎂</span><br><br>
+          Wish you all the happiness. You are always my <span class="w-box">✨ CHAMP ✨</span> and this year is gonna be <em>yours</em> — you'll <strong>rock it</strong>.<br><br>
+          Even if something doesn't go your way, just remember —<br>
+          <span class="w-hi">I'm always there for you, no matter what. 💪</span><br><br>
+          I know you don't trust me enough, but I assure you —<br>
+          <em>your didi has always got your back.</em>
+          <span class="w-love">LOVE YOU KIDDO! ❤️</span>
+        </div>
+        <div class="wish-sign">— Your Didi 🌸</div>
+      </div>
+    </div>
+
+    <!-- DRAW SECTION -->
+    <div class="draw-section">
+      <div class="draw-header">
+        <div>
+          <div class="dh-title">✏️ SHAKA LAKA BOOM BOOM PENCIL</div>
+          <div class="dh-sub">// DRAW ANYTHING YOU WANT THIS BIRTHDAY — YOUR WISH, YOUR WORLD //</div>
+        </div>
+        <div class="pencil-anim">🪄</div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="drawCanvas" width="800" height="380"></canvas>
+        <div class="canvas-hint" id="canvasHint">
+          ✨ DRAW YOUR BIRTHDAY WISH HERE ✨<br>
+          What do YOU want?<br>
+          <span style="font-size:0.6em;letter-spacing:2px;">Anything. Everything.</span>
+        </div>
+      </div>
+      <div class="draw-tools">
+        <span style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:1px;">SIZE:</span>
+        <input type="range" class="bslider" id="bSize" min="2" max="40" value="6">
+        <button class="tbtn on" id="penBtn" title="Pen">✏️</button>
+        <button class="tbtn" id="eraserBtn" title="Eraser">🧹</button>
+        <div class="divider-line"></div>
+        <span class="cdot on" style="background:#0d0d14" data-c="#0d0d14"></span>
+        <span class="cdot" style="background:#ff2d55" data-c="#ff2d55"></span>
+        <span class="cdot" style="background:#00cfff" data-c="#00cfff"></span>
+        <span class="cdot" style="background:#ffe234" data-c="#ffe234"></span>
+        <span class="cdot" style="background:#bf5fff" data-c="#bf5fff"></span>
+        <span class="cdot" style="background:#00ffb2" data-c="#00ffb2"></span>
+        <span class="cdot" style="background:#ff6b00" data-c="#ff6b00"></span>
+        <span class="cdot" style="background:#ff9999" data-c="#ff9999"></span>
+        <div class="divider-line"></div>
+        <button class="act-btn clr" id="clrBtn">CLEAR</button>
+        <button class="act-btn sav" id="savBtn">SAVE 💾</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-main">⚡ THIS YEAR IS YOURS, AMAN ⚡</div>
+      <div class="footer-eq" id="feq"></div>
+      <div class="footer-credit">// MADE WITH ❤️ BY DIDI · PROTAGONIST OF YOUR STORY //</div>
+    </div>
+
+  </div><!-- end content-side -->
+</div><!-- end app-wrapper -->
+
+<script>
+// ===== STARS =====
+const sf = document.getElementById('starfield');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 3 + 1;
+  s.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    animation-delay:${Math.random()*3}s;
+    animation-duration:${1.5+Math.random()*2}s;
+  `;
+  sf.appendChild(s);
+}
+
+// ===== SPEED BURST =====
+const burst = document.getElementById('burst');
+for (let i = 0; i < 24; i++) {
+  const l = document.createElement('div');
+  l.className = 'burst-line';
+  l.style.transform = `rotate(${i * 15}deg)`;
+  burst.appendChild(l);
+}
+
+// ===== EQ BARS =====
+const eqColors = ['#00cfff','#ffe234','#ff2d55','#bf5fff','#00ffb2','#ff6b00','#00cfff','#ffe234'];
+const eqZone = document.getElementById('eqZone');
+for (let i = 0; i < 14; i++) {
+  const b = document.createElement('div');
+  b.className = 'eq-b';
+  b.style.cssText = `
+    background:${eqColors[i%eqColors.length]};
+    animation-delay:${i*0.07}s;
+    animation-duration:${0.3+Math.random()*0.4}s;
+  `;
+  eqZone.appendChild(b);
+}
+
+// Footer EQ
+const feq = document.getElementById('feq');
+for (let i = 0; i < 16; i++) {
+  const b = document.createElement('div');
+  b.className = 'feq-b';
+  b.style.cssText = `
+    width:5px; background:${eqColors[i%eqColors.length]};
+    border-radius:3px 3px 0 0;
+    animation: eqA ${0.3+Math.random()*0.4}s ease-in-out infinite alternate;
+    animation-delay:${i*0.06}s;
+  `;
+  feq.appendChild(b);
+}
+
+// ===== CANVAS =====
+const canvas = document.getElementById('drawCanvas');
+const ctx = canvas.getContext('2d');
+const hint = document.getElementById('canvasHint');
+
+function resizeCanvas() {
+  const w = canvas.parentElement.clientWidth;
+  const h = Math.max(300, Math.min(480, window.innerHeight * 0.45));
+  canvas.width = w;
+  canvas.height = h;
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, w, h);
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let drawing = false, erasing = false, color = '#0d0d14', size = 6, drawn = false;
+let lx = 0, ly = 0;
+
+function getP(e) {
+  const r = canvas.getBoundingClientRect();
+  const sx = canvas.width / r.width, sy = canvas.height / r.height;
+  if (e.touches) return { x: (e.touches[0].clientX - r.left)*sx, y: (e.touches[0].clientY - r.top)*sy };
+  return { x: (e.clientX - r.left)*sx, y: (e.clientY - r.top)*sy };
+}
+
+canvas.addEventListener('mousedown', e => {
+  drawing = true;
+  const p = getP(e); lx = p.x; ly = p.y;
+  if (!drawn) { drawn = true; hint.style.display = 'none'; }
+});
+canvas.addEventListener('mousemove', e => {
+  if (!drawing) return;
+  const p = getP(e);
+  ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(p.x, p.y);
+  ctx.strokeStyle = erasing ? '#fff' : color;
+  ctx.lineWidth = erasing ? size * 3 : size;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+  lx = p.x; ly = p.y;
+});
+canvas.addEventListener('mouseup', () => drawing = false);
+canvas.addEventListener('mouseleave', () => drawing = false);
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault(); drawing = true;
+  const p = getP(e); lx = p.x; ly = p.y;
+  if (!drawn) { drawn = true; hint.style.display = 'none'; }
+}, { passive: false });
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (!drawing) return;
+  const p = getP(e);
+  ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(p.x, p.y);
+  ctx.strokeStyle = erasing ? '#fff' : color;
+  ctx.lineWidth = erasing ? size * 3 : size;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+  lx = p.x; ly = p.y;
+}, { passive: false });
+canvas.addEventListener('touchend', () => drawing = false);
+
+document.getElementById('penBtn').addEventListener('click', () => {
+  erasing = false;
+  document.getElementById('penBtn').classList.add('on');
+  document.getElementById('eraserBtn').classList.remove('on');
+});
+
+document.getElementById('eraserBtn').addEventListener('click', () => {
+  erasing = true;
+  document.getElementById('eraserBtn').classList.add('on');
+  document.getElementById('penBtn').classList.remove('on');
+});
+
+document.getElementById('bSize').addEventListener('input', function() { size = +this.value; });
+
+document.querySelectorAll('.cdot').forEach(d => {
+  d.addEventListener('click', function() {
+    color = this.dataset.c; erasing = false;
+    document.querySelectorAll('.cdot').forEach(x => x.classList.remove('on'));
+    this.classList.add('on');
+    document.getElementById('penBtn').classList.add('on');
+    document.getElementById('eraserBtn').classList.remove('on');
+  });
+});
+
+document.getElementById('clrBtn').addEventListener('click', () => {
+  ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  drawn = false; hint.style.display = 'block';
+});
+
+document.getElementById('savBtn').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.download = 'aman_bday_wish.png';
+  a.href = canvas.toDataURL(); a.click();
+});
+</script>
 </body>
 </html>
