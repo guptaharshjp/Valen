@@ -205,6 +205,24 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
 /* send status */
 #send-status { font-family:'Share Tech Mono'; font-size:0.48rem; color:#4a4a6a; padding:4px 12px; border-top:1px solid rgba(255,255,255,.04); background:rgba(0,0,0,.15); flex-shrink:0; min-height:22px; display:flex; align-items:center; letter-spacing:1px; }
 
+/* name + message strip */
+#gift-strip { display:flex; gap:0; border-top:1px solid #252540; flex-shrink:0; background:rgba(0,0,0,.22); }
+#gift-name {
+  flex:0 0 200px; padding:8px 14px;
+  background:transparent; border:none; border-right:1px solid #252540;
+  font-family:'Zen Dots'; font-size:0.62rem; color:#c9a84c; letter-spacing:3px;
+  outline:none;
+}
+#gift-name::placeholder { color:rgba(201,168,76,.25); font-family:'Share Tech Mono'; font-size:0.5rem; letter-spacing:2px; }
+#gift-msg {
+  flex:1; padding:8px 14px;
+  background:transparent; border:none;
+  font-family:'Rajdhani'; font-size:0.88rem; font-weight:600; color:#ddddf0; letter-spacing:1px;
+  outline:none; resize:none; height:38px;
+}
+#gift-msg::placeholder { color:rgba(220,220,235,.2); font-family:'Share Tech Mono'; font-size:0.5rem; letter-spacing:2px; }
+#gift-name:focus, #gift-msg:focus { background:rgba(201,168,76,.04); }
+
 .hidden-form { display:none; }
 
 @media(max-width:600px){
@@ -355,6 +373,11 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
       <canvas id="dc"></canvas>
       <div id="chint">DRAW YOUR BIRTHDAY WISH ✨<br><span style="font-size:.55em;letter-spacing:2px;opacity:.5;">tap SEND TO DIDI 📧 when done</span></div>
     </div>
+    <!-- Name + message strip -->
+    <div id="gift-strip">
+      <input id="gift-name" type="text" maxlength="40" placeholder="YOUR NAME / FROM...">
+      <input id="gift-msg"  type="text" maxlength="200" placeholder="write a message here if not drawing... 💬">
+    </div>
     <div id="dtools">
       <span class="dtlbl">SIZE</span>
       <input type="range" class="dtr" id="dsize" min="2" max="40" value="6">
@@ -380,7 +403,7 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
 
 <!-- Formspree hidden form -->
 <form id="draw-form" action="https://formspree.io/f/mkovpokp" method="POST" class="hidden-form">
-  <input type="hidden" name="_subject" value="🎨 Aman drew something for you on his Birthday Canvas!">
+  <input type="hidden" name="_subject" id="draw-subject" value="🎨 Aman drew something for you on his Birthday Canvas!">
   <input type="text"   name="from"     value="Birthday Canvas — Aman">
   <textarea            name="message"  id="draw-msg"></textarea>
   <input type="text"   name="image_data" id="draw-data">
@@ -501,26 +524,26 @@ var songs=[
   {
     e:'🎂',
     t:'BIRTHDAY BY DIDI',
-    a:'Special — From Didi',
-    src:'Music/Birthday by didi.ogg'
+    a:'Special — From Didi 💌',
+    src:'Music/Birthday%20by%20didi.ogg'
   },
   {
     e:'🎵',
-    t:'DIDI',
-    a:'Didi.ogg',
+    t:'DIL TU JAN TU',
+    a:'Classic — Didi',
     src:'Music/Didi.ogg'
   },
   {
     e:'🎬',
     t:'PAPA KEHTE HAIN',
     a:'Srikanth',
-    src:'Music/Papa Kehte Hain Srikanth 128 Kbps.mp3'
+    src:'Music/Papa%20Kehte%20Hain%20Srikanth%20128%20Kbps.mp3'
   },
   {
     e:'💛',
     t:'TENU SANG RAKHNA',
     a:'Jigra',
-    src:'Music/Tenu Sang Rakhna Jigra 128 Kbps.mp3'
+    src:'Music/Tenu%20Sang%20Rakhna%20Jigra%20128%20Kbps.mp3'
   },
 ];
 
@@ -608,13 +631,14 @@ document.querySelectorAll('.dtsw').forEach(function(s){
     document.getElementById('derase').classList.remove('on');
   };
 });
-document.getElementById('dclr').onclick=function(){ dctx.fillStyle='#fff'; dctx.fillRect(0,0,dc.width,dc.height); ddrawn=false; chintEl.style.display='flex'; statusEl.textContent='// canvas cleared'; };
+document.getElementById('dclr').onclick=function(){ dctx.fillStyle='#fff'; dctx.fillRect(0,0,dc.width,dc.height); ddrawn=false; chintEl.style.display='flex'; document.getElementById('gift-name').value=''; document.getElementById('gift-msg').value=''; statusEl.textContent='// canvas cleared'; };
 document.getElementById('dsav').onclick=function(){ var a=document.createElement('a'); a.download='aman_birthday_drawing.png'; a.href=dc.toDataURL(); a.click(); };
 
 /* ══ SEND TO DIDI VIA FORMSPREE ══ */
 document.getElementById('dsend').onclick=function(){
   var btn=this;
-  if(!ddrawn){ statusEl.textContent='// draw something first! ✏️'; return; }
+  var hasMsg = document.getElementById('gift-msg').value.trim().length > 0;
+  if(!ddrawn && !hasMsg){ statusEl.textContent='// draw something OR write a message first! ✏️'; return; }
 
   btn.textContent='SENDING... ⏳'; btn.disabled=true;
   statusEl.textContent='// compressing and sending...';
@@ -628,15 +652,16 @@ document.getElementById('dsend').onclick=function(){
   tctx.drawImage(dc,0,0,tw,th);
   var dataUrl=tmp.toDataURL('image/jpeg',0.7);
 
-  /* build message */
-  var msg='🎂 AMAN DREW SOMETHING FOR YOU!\n\n'
-        + 'Birthday: 2025\n'
+  var giftName = document.getElementById('gift-name').value.trim() || 'Aman';
+  var giftMsg  = document.getElementById('gift-msg').value.trim()  || '(no message — see drawing)';
+  document.getElementById('draw-subject').value = '🎨 Birthday Canvas from ' + giftName + ' — ' + giftMsg.substring(0,40);
+  var msg='🎂 BIRTHDAY GIFT FROM: '+giftName+'\n\n'
+        + '💬 Message: '+giftMsg+'\n\n'
         + 'Canvas size: '+dc.width+'×'+dc.height+'px\n\n'
         + 'HOW TO SEE THE DRAWING:\n'
         + '1. Copy the entire image_data field from this email\n'
         + '2. Paste it into your browser address bar\n'
         + '3. Press Enter — the drawing will appear!\n\n'
-        + 'OR open this link in browser:\n'+dataUrl.substring(0,120)+'...\n\n'
         + '— Sent from Aman\'s Birthday Canvas 🎨';
 
   document.getElementById('draw-msg').value  = msg;
