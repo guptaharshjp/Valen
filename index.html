@@ -6,14 +6,11 @@
 <title>Happy Birthday Aman ⚡</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; height:100%; background:#04040a; font-family:'Rajdhani',sans-serif; color:#ddddf0; overflow:hidden; }
-
-/* ── SCANLINES ── */
 body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px); }
 
-/* ── HUD ── */
+/* HUD */
 #hud { position:fixed; top:0; left:0; right:0; z-index:300; height:38px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; background:#04040a; border-bottom:1px solid #252540; }
 #hud-logo { font-family:'Zen Dots'; font-size:0.58rem; color:#c9a84c; letter-spacing:4px; }
 #hud-dots { display:flex; gap:5px; align-items:center; }
@@ -21,43 +18,31 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 .hd.on { background:#c9a84c; border-color:#c9a84c; box-shadow:0 0 6px #c9a84c; }
 #hud-ctr { font-family:'Share Tech Mono'; font-size:0.55rem; color:#4a4a6a; letter-spacing:2px; }
 
-/* ── BOTTOM NAV ── */
+/* BOTTOM NAV */
 #bnav { position:fixed; bottom:0; left:0; right:0; z-index:300; height:36px; display:flex; align-items:center; justify-content:center; background:#04040a; border-top:1px solid #252540; }
 .nb { background:transparent; border:none; cursor:pointer; color:#4a4a6a; padding:0 13px; height:100%; font-family:'Share Tech Mono'; font-size:0.49rem; letter-spacing:2px; transition:.2s; position:relative; }
 .nb-sep { width:1px; height:13px; background:#252540; }
 .nb.on, .nb:hover { color:#c9a84c; }
 .nb.on::after { content:''; position:absolute; bottom:0; left:13px; right:13px; height:1px; background:#c9a84c; }
 
-/* ── CORNER DECO ── */
+/* CORNER DECO */
 .cdeco { position:fixed; z-index:200; width:44px; height:44px; pointer-events:none; }
 .cdeco.tl { top:46px; left:12px; border-top:1px solid rgba(201,168,76,.35); border-left:1px solid rgba(201,168,76,.35); }
 .cdeco.tr { top:46px; right:12px; border-top:1px solid rgba(201,168,76,.35); border-right:1px solid rgba(201,168,76,.35); }
 .cdeco.bl { bottom:44px; left:12px; border-bottom:1px solid rgba(201,168,76,.35); border-left:1px solid rgba(201,168,76,.35); }
 .cdeco.br { bottom:44px; right:12px; border-bottom:1px solid rgba(201,168,76,.35); border-right:1px solid rgba(201,168,76,.35); }
 
-/* ── PAGES — same as Harsh's working page ── */
-.page {
-  display:none;
-  position:fixed; top:38px; left:0; right:0; bottom:36px;
-  background:#04040a;
-  flex-direction:column; align-items:center; justify-content:center;
-  overflow:hidden; z-index:10;
-}
-.page.active {
-  display:flex;
-  animation:fadeSlide .5s cubic-bezier(0.22,1,0.36,1);
-}
+/* PAGES */
+.page { display:none; position:fixed; top:38px; left:0; right:0; bottom:36px; background:#04040a; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; z-index:10; }
+.page.active { display:flex; animation:fadeSlide .5s cubic-bezier(0.22,1,0.36,1); }
 @keyframes fadeSlide { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
-/* ─────────────────────────────
-   S0 — ENTRY
-───────────────────────────── */
+/* ── S0 ENTRY ── */
 #s0-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px); background-size:70px 70px; }
 #s0-glow { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(123,47,255,.14) 0%,transparent 65%),radial-gradient(ellipse 50% 30% at 80% 8%,rgba(201,168,76,.08) 0%,transparent 55%); }
 #s0-pts  { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
 .pt { position:absolute; border-radius:50%; animation:ptRise linear infinite; opacity:0; }
 @keyframes ptRise { 0%{transform:translateY(110%);opacity:0} 10%{opacity:.6} 90%{opacity:.2} 100%{transform:translateY(-60px);opacity:0} }
-
 #s0-c { position:relative; z-index:5; text-align:center; padding:20px; }
 .s0-eyebrow { font-family:'Share Tech Mono'; font-size:0.62rem; color:#c9a84c; letter-spacing:6px; margin-bottom:20px; display:flex; align-items:center; justify-content:center; gap:14px; }
 .s0-eyebrow::before,.s0-eyebrow::after { content:''; width:36px; height:1px; background:rgba(201,168,76,.35); }
@@ -71,9 +56,7 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 .s0-btn .btnlbl  { position:relative; z-index:1; transition:color .2s; }
 .s0-btn:hover .btnlbl { color:#04040a; }
 
-/* ─────────────────────────────
-   S1 — CHAPTERS
-───────────────────────────── */
+/* ── S1 CHAPTERS ── */
 #s1-glow { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(230,57,70,.07) 0%,transparent 60%); }
 .s1-head { font-family:'Zen Dots'; font-size:0.68rem; letter-spacing:6px; color:#c9a84c; margin-bottom:30px; position:relative; z-index:5; display:flex; align-items:center; gap:14px; }
 .s1-head::before,.s1-head::after { content:''; width:52px; height:1px; background:rgba(201,168,76,.22); }
@@ -89,9 +72,7 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 .ccard-arr  { position:absolute; bottom:13px; right:14px; font-family:'Share Tech Mono'; font-size:0.6rem; color:#c9a84c; opacity:0; transition:.2s; }
 .ccard:hover .ccard-arr { opacity:1; }
 
-/* ─────────────────────────────
-   SHARED PANEL
-───────────────────────────── */
+/* ── SHARED PANEL ── */
 .pw { width:min(880px,95vw); height:calc(100% - 14px); display:flex; flex-direction:column; border:1px solid #252540; background:#0b0b18; overflow:hidden; position:relative; z-index:5; }
 .ph { display:flex; align-items:center; gap:14px; padding:10px 18px; border-bottom:1px solid #252540; background:rgba(0,0,0,.35); flex-shrink:0; }
 .ph-num   { font-family:'Share Tech Mono'; font-size:0.56rem; color:#c9a84c; letter-spacing:3px; }
@@ -99,26 +80,23 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 .ph-close { background:transparent; border:1px solid #4a4a6a; color:#4a4a6a; cursor:pointer; width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-family:'Share Tech Mono'; transition:.2s; }
 .ph-close:hover { border-color:#c9a84c; color:#c9a84c; }
 
-/* ─────────────────────────────
-   S2 — PHOTOS + TIMELINE
-───────────────────────────── */
-/* Timeline bar at top */
-.timeline-bar { flex-shrink:0; padding:14px 20px 10px; border-bottom:1px solid #252540; background:rgba(0,0,0,.2); overflow-x:auto; }
+/* ── S2 PHOTOS + TIMELINE ── */
+.timeline-bar { flex-shrink:0; padding:12px 18px 10px; border-bottom:1px solid #252540; background:rgba(0,0,0,.2); overflow-x:auto; }
 .timeline-bar::-webkit-scrollbar { height:2px; }
 .timeline-bar::-webkit-scrollbar-thumb { background:#c9a84c; }
-.tl-inner { display:flex; align-items:center; gap:0; min-width:max-content; }
+.tl-inner { display:flex; align-items:center; min-width:max-content; }
 .tl-step { display:flex; align-items:center; cursor:pointer; }
-.tl-node { display:flex; flex-direction:column; align-items:center; gap:5px; padding:0 6px; transition:.2s; }
-.tl-dot-wrap { position:relative; }
+.tl-node { display:flex; flex-direction:column; align-items:center; gap:4px; padding:0 6px; }
 .tl-dot { width:11px; height:11px; border-radius:50%; border:2px solid #4a4a6a; background:#04040a; transition:.2s; }
-.tl-step.on .tl-dot { border-color:#c9a84c; background:#c9a84c; box-shadow:0 0 8px rgba(201,168,76,.5); }
+.tl-step.on .tl-dot  { border-color:#c9a84c; background:#c9a84c; box-shadow:0 0 8px rgba(201,168,76,.5); }
 .tl-step.past .tl-dot { border-color:#c9a84c; background:rgba(201,168,76,.25); }
-.tl-ch   { font-family:'Zen Dots'; font-size:0.52rem; color:#c9a84c; letter-spacing:2px; white-space:nowrap; }
-.tl-lbl  { font-family:'Share Tech Mono'; font-size:0.42rem; color:#4a4a6a; letter-spacing:1px; white-space:nowrap; }
-.tl-step.on .tl-lbl  { color:#c9a84c; }
-.tl-line { width:32px; height:1px; background:repeating-linear-gradient(90deg,#252540 0,#252540 4px,transparent 4px,transparent 8px); flex-shrink:0; margin:0 2px; position:relative; top:-8px; }
+.tl-ch  { font-family:'Zen Dots'; font-size:0.5rem; color:#4a4a6a; letter-spacing:2px; white-space:nowrap; }
+.tl-lbl { font-family:'Share Tech Mono'; font-size:0.4rem; color:#3a3a5a; letter-spacing:1px; white-space:nowrap; }
+.tl-step.on .tl-ch  { color:#c9a84c; }
+.tl-step.on .tl-lbl { color:#c9a84c; }
+.tl-step.past .tl-ch  { color:rgba(201,168,76,.5); }
+.tl-line { width:28px; height:1px; flex-shrink:0; background:repeating-linear-gradient(90deg,#252540 0,#252540 4px,transparent 4px,transparent 8px); position:relative; top:-8px; }
 .tl-line.done { background:#c9a84c; }
-
 .photo-viewer { display:flex; flex:1; overflow:hidden; }
 #pthumbs { width:110px; flex-shrink:0; border-right:1px solid #252540; overflow-y:auto; padding:7px; display:flex; flex-direction:column; gap:5px; background:rgba(0,0,0,.18); }
 #pthumbs::-webkit-scrollbar { width:2px; }
@@ -138,9 +116,7 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 .pnbtn:hover { border-color:#c9a84c; color:#c9a84c; }
 #pctr { font-family:'Share Tech Mono'; font-size:0.52rem; color:#4a4a6a; letter-spacing:3px; }
 
-/* ─────────────────────────────
-   S3 — MUSIC
-───────────────────────────── */
+/* ── S3 MUSIC ── */
 #mwrap { width:min(540px,92vw); border:1px solid #252540; background:#0b0b18; overflow:hidden; position:relative; z-index:5; }
 #mnow { padding:20px 22px 14px; border-bottom:1px solid #252540; display:flex; align-items:center; gap:16px; background:rgba(0,0,0,.22); }
 #vinyl { width:60px; height:60px; flex-shrink:0; border-radius:50%; background:conic-gradient(#0a0a18 0deg,#c9a84c 40deg,#0a0a18 80deg,#e63946 140deg,#0a0a18 200deg,#00b4d8 260deg,#0a0a18 320deg,#c9a84c 360deg); border:2px solid rgba(201,168,76,.22); position:relative; }
@@ -151,9 +127,8 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 #msong   { font-family:'Zen Dots'; font-size:0.78rem; color:#c9a84c; letter-spacing:2px; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 #martist { font-family:'Share Tech Mono'; font-size:0.5rem; color:#4a4a6a; letter-spacing:2px; margin-top:4px; }
 #meq     { display:flex; gap:2px; align-items:flex-end; height:18px; margin-top:8px; }
-.meqb { width:4px; border-radius:2px 2px 0 0; background:#c9a84c; height:4px; }
-.meqb.on { animation:eqbon .3s ease-in-out infinite alternate; }
-.meqb    { animation:eqboff .3s ease-in-out infinite alternate; }
+.meqb    { width:4px; border-radius:2px 2px 0 0; background:#c9a84c; animation:eqboff .3s ease-in-out infinite alternate; }
+.meqb.on { animation:eqbon .3s ease-in-out infinite alternate !important; }
 @keyframes eqboff { from{height:3px;opacity:.18} to{height:10px;opacity:.18} }
 @keyframes eqbon  { from{height:3px;opacity:1}   to{height:16px;opacity:1} }
 #mprog  { padding:13px 22px 0; }
@@ -167,102 +142,69 @@ body::after { content:''; position:fixed; inset:0; z-index:9999; pointer-events:
 #mpl { width:48px; height:48px; border-radius:50%; border-color:#c9a84c; color:#c9a84c; font-size:1.1rem; background:rgba(201,168,76,.07); }
 #mpl:hover { background:#c9a84c; color:#04040a; }
 .mbtn.on { border-color:#00f5d4; color:#00f5d4; }
-#slist { border-top:1px solid #252540; max-height:190px; overflow-y:auto; }
+#slist { border-top:1px solid #252540; max-height:185px; overflow-y:auto; }
 #slist::-webkit-scrollbar { width:2px; }
 #slist::-webkit-scrollbar-thumb { background:#c9a84c; }
-.srow { display:flex; align-items:center; gap:10px; padding:8px 16px; cursor:pointer; border-bottom:1px solid rgba(255,255,255,.03); transition:.12s; }
+.srow { display:flex; align-items:center; gap:10px; padding:9px 16px; cursor:pointer; border-bottom:1px solid rgba(255,255,255,.03); transition:.12s; }
 .srow:hover { background:rgba(201,168,76,.05); }
 .srow.on    { background:rgba(201,168,76,.09); }
 .srow-n    { font-family:'Share Tech Mono'; font-size:0.5rem; color:#4a4a6a; width:18px; text-align:right; }
 .srow.on .srow-n { color:#c9a84c; }
-.srow-t { flex:1; font-family:'Rajdhani'; font-size:0.8rem; color:rgba(200,200,220,.42); letter-spacing:1px; }
+.srow-t { flex:1; font-family:'Rajdhani'; font-size:0.82rem; color:rgba(200,200,220,.42); letter-spacing:1px; }
 .srow.on .srow-t { color:#c9a84c; }
 #volrow { display:flex; align-items:center; gap:10px; padding:9px 16px; border-top:1px solid #252540; }
 #volrow input { flex:1; accent-color:#c9a84c; cursor:pointer; }
 #vlbl { font-family:'Share Tech Mono'; font-size:0.5rem; color:#4a4a6a; width:26px; text-align:right; }
 
-/* ─────────────────────────────
-   S4 — WISH  (Cormorant style)
-───────────────────────────── */
+/* ── S4 WISH ── */
 #s4-bg { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 60% 50% at 25% 50%,rgba(123,47,255,.08) 0%,transparent 65%),radial-gradient(ellipse 60% 50% at 75% 50%,rgba(230,57,70,.06) 0%,transparent 65%); }
 #s4-rain { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
 .wrain { position:absolute; width:1px; background:linear-gradient(0deg,transparent,#c9a84c,transparent); animation:wfall linear infinite; opacity:0; }
 @keyframes wfall { 0%{transform:translateY(-80px);opacity:0} 10%{opacity:.4} 90%{opacity:.1} 100%{transform:translateY(110vh);opacity:0} }
-
 #wouter { width:min(640px,92vw); max-height:calc(100% - 14px); border:1px solid #252540; background:#0b0b18; overflow-y:auto; position:relative; z-index:5; }
 #wouter::-webkit-scrollbar { width:2px; }
 #wouter::-webkit-scrollbar-thumb { background:#c9a84c; }
-
-/* wish header strip */
+#wouter::before { content:''; display:block; height:3px; background:linear-gradient(90deg,#c9a84c,#e8c96a,#c9a84c,#7a4d10,#c9a84c); background-size:300%; animation:shimmer 4s linear infinite; }
 #wtop { background:rgba(0,0,0,.5); border-bottom:1px solid #252540; padding:18px 28px; display:flex; align-items:center; gap:18px; }
 #wavatar { width:52px; height:52px; border-radius:50%; border:2px solid #c9a84c; background:#0a0a18; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
 #wsender { font-family:'Zen Dots'; font-size:0.72rem; color:#c9a84c; letter-spacing:3px; }
 #wrole   { font-family:'Share Tech Mono'; font-size:0.5rem; color:#4a4a6a; letter-spacing:2px; margin-top:3px; }
-
-/* gold shimmer rule at top of card */
-#wouter::before { content:''; display:block; height:3px; background:linear-gradient(90deg,#c9a84c,#e8c96a,#c9a84c,#7a4d10,#c9a84c); background-size:300%; animation:shimmer 4s linear infinite; }
-
-/* body copy — Cormorant */
 #wbody { padding:32px 28px; }
-.wish-salute {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.4rem,3vw,1.9rem);
-  font-weight:600; color:#e8c96a;
-  letter-spacing:1px; line-height:1.3;
-  display:block; margin-bottom:22px;
-  border-left:3px solid #c9a84c; padding-left:14px;
-}
-.wish-para {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1rem,1.8vw,1.15rem);
-  color:rgba(220,220,235,.82);
-  line-height:2.1; letter-spacing:.3px;
-  margin-bottom:18px;
-}
+.wish-salute { font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,3vw,1.9rem); font-weight:600; color:#e8c96a; letter-spacing:1px; line-height:1.3; display:block; margin-bottom:22px; border-left:3px solid #c9a84c; padding-left:14px; }
+.wish-para { font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,1.8vw,1.15rem); color:rgba(220,220,235,.82); line-height:2.1; letter-spacing:.3px; margin-bottom:18px; }
 .wish-para strong { color:#e8c96a; font-weight:600; }
 .wish-para em { color:#00f5d4; font-style:italic; }
-.wish-highlight {
-  display:inline-block;
-  background:rgba(201,168,76,.1);
-  border:1px solid rgba(201,168,76,.3);
-  border-radius:3px;
-  padding:1px 10px 2px;
-  font-family:'Zen Dots';
-  font-size:.72em;
-  color:#c9a84c;
-  letter-spacing:3px;
-  margin:0 3px;
-  vertical-align:middle;
-}
+.wish-highlight { display:inline-block; background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3); border-radius:3px; padding:1px 10px 2px; font-family:'Zen Dots'; font-size:.72em; color:#c9a84c; letter-spacing:3px; margin:0 3px; vertical-align:middle; }
 #wlove { display:block; text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; font-size:clamp(1.6rem,4vw,2.4rem); color:#e63946; letter-spacing:4px; margin:26px 0 8px; text-shadow:0 0 30px rgba(230,57,70,.35); animation:lp 2.5s ease-in-out infinite; }
 @keyframes lp { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.75;transform:scale(1.02)} }
 #wsign { padding:16px 28px 20px; text-align:right; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:#4a4a6a; letter-spacing:3px; border-top:1px solid #252540; }
 
-/* ─────────────────────────────
-   S5 — DRAW + EMAIL
-───────────────────────────── */
+/* ── S5 DRAW ── */
 #dwrap { width:min(800px,95vw); height:calc(100% - 14px); border:1px solid #252540; background:#0b0b18; display:flex; flex-direction:column; overflow:hidden; position:relative; z-index:5; }
-#dhdr  { display:flex; align-items:center; gap:12px; padding:10px 16px; border-bottom:1px solid #252540; background:rgba(0,0,0,.28); flex-shrink:0; }
+#dhdr  { display:flex; align-items:center; gap:10px; padding:10px 16px; border-bottom:1px solid #252540; background:rgba(0,0,0,.28); flex-shrink:0; flex-wrap:wrap; }
 #dhdr-t { font-family:'Zen Dots'; font-size:0.6rem; letter-spacing:3px; color:#c9a84c; flex:1; }
+.dhdr-badge { font-family:'Share Tech Mono'; font-size:0.46rem; color:#e63946; letter-spacing:1px; border:1px solid rgba(230,57,70,.4); padding:2px 8px; white-space:nowrap; }
 #czone { flex:1; position:relative; background:#ffffff; cursor:crosshair; overflow:hidden; }
 #dc    { display:block; width:100%; height:100%; }
-#chint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; font-family:'Zen Dots'; font-size:.9rem; letter-spacing:4px; color:rgba(0,0,0,.06); text-align:center; line-height:2; }
+#chint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; font-family:'Zen Dots'; font-size:.9rem; letter-spacing:4px; color:rgba(0,0,0,.06); text-align:center; line-height:2.2; }
 #dtools { display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:8px 12px; border-top:1px solid #252540; background:rgba(0,0,0,.18); flex-shrink:0; }
 .dtlbl { font-family:'Share Tech Mono'; font-size:0.5rem; color:#4a4a6a; letter-spacing:2px; }
 .dtbtn { width:30px; height:30px; border:1px solid #252540; background:transparent; cursor:pointer; font-size:.78rem; display:flex; align-items:center; justify-content:center; transition:.12s; color:#4a4a6a; }
 .dtbtn:hover,.dtbtn.on { border-color:#c9a84c; color:#c9a84c; background:rgba(201,168,76,.07); }
 .dtsw  { width:22px; height:22px; border-radius:50%; border:2px solid #252540; cursor:pointer; transition:.12s; flex-shrink:0; }
 .dtsw:hover,.dtsw.on { border-color:#c9a84c; transform:scale(1.2); box-shadow:0 0 6px rgba(201,168,76,.4); }
-.dtact { padding:5px 11px; border:1px solid #252540; background:transparent; cursor:pointer; font-family:'Share Tech Mono'; font-size:0.5rem; letter-spacing:2px; color:#4a4a6a; transition:.12s; }
+.dtact { padding:5px 11px; border:1px solid #252540; background:transparent; cursor:pointer; font-family:'Share Tech Mono'; font-size:0.5rem; letter-spacing:2px; color:#4a4a6a; transition:.12s; white-space:nowrap; }
 .dtact:hover { border-color:#c9a84c; color:#c9a84c; }
-#dsav  { border-color:#00f5d4; color:#00f5d4; }
+#dsav  { border-color:rgba(0,245,212,.6); color:#00f5d4; }
 #dsav:hover  { background:rgba(0,245,212,.09); }
-#dsend { border-color:#e63946; color:#e63946; }
-#dsend:hover { background:rgba(230,57,70,.09); }
+#dsend { border-color:rgba(230,57,70,.7); color:#e63946; font-weight:700; }
+#dsend:hover { background:rgba(230,57,70,.1); }
 #dsend.sent  { border-color:#00f5d4; color:#00f5d4; }
 input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
 
-/* hidden formspree form */
+/* send status */
+#send-status { font-family:'Share Tech Mono'; font-size:0.48rem; color:#4a4a6a; padding:4px 12px; border-top:1px solid rgba(255,255,255,.04); background:rgba(0,0,0,.15); flex-shrink:0; min-height:22px; display:flex; align-items:center; letter-spacing:1px; }
+
 .hidden-form { display:none; }
 
 @media(max-width:600px){
@@ -272,7 +214,6 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
   .nb { padding:0 7px; font-size:0.44rem; }
   #wbody { padding:22px 16px; }
   #wtop  { padding:14px 16px; }
-  #wsign { padding:12px 16px 16px; }
 }
 </style>
 </head>
@@ -281,14 +222,12 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
 <div class="cdeco tl"></div><div class="cdeco tr"></div>
 <div class="cdeco bl"></div><div class="cdeco br"></div>
 
-<!-- HUD -->
 <div id="hud">
   <div id="hud-logo">AMAN // 2025</div>
   <div id="hud-dots"></div>
   <div id="hud-ctr">00 / 05</div>
 </div>
 
-<!-- BOTTOM NAV -->
 <div id="bnav">
   <button class="nb on" onclick="goTo(0)">ENTRY</button><div class="nb-sep"></div>
   <button class="nb"    onclick="goTo(1)">CHAPTERS</button><div class="nb-sep"></div>
@@ -300,9 +239,7 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
 
 <!-- ═══ PAGE 0 — ENTRY ═══ -->
 <div class="page active" id="p0">
-  <div id="s0-grid"></div>
-  <div id="s0-glow"></div>
-  <div id="s0-pts"></div>
+  <div id="s0-grid"></div><div id="s0-glow"></div><div id="s0-pts"></div>
   <div id="s0-c">
     <div class="s0-eyebrow">CLASSIFIED // EYES ONLY</div>
     <div class="s0-title">HAPPY<br>BIRTHDAY</div>
@@ -322,7 +259,7 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
     <div class="ccard" onclick="goTo(2)"><div class="ccard-bar"></div><div class="ccard-num">CH.001 — 003</div><div class="ccard-ico">📼</div><div class="ccard-name">THE ORIGIN ARC</div><div class="ccard-desc">From the very beginning to now</div><div class="ccard-arr">→</div></div>
     <div class="ccard" onclick="goTo(3)"><div class="ccard-bar"></div><div class="ccard-num">CH.004</div><div class="ccard-ico">🎵</div><div class="ccard-name">BIRTHDAY SOUNDTRACK</div><div class="ccard-desc">Play the OST of your story</div><div class="ccard-arr">→</div></div>
     <div class="ccard" onclick="goTo(4)"><div class="ccard-bar"></div><div class="ccard-num">CH.005</div><div class="ccard-ico">💌</div><div class="ccard-name">MESSAGE FROM DIDI</div><div class="ccard-desc">Player 1 has something to say</div><div class="ccard-arr">→</div></div>
-    <div class="ccard" onclick="goTo(5)"><div class="ccard-bar"></div><div class="ccard-num">CH.006</div><div class="ccard-ico">✏️</div><div class="ccard-name">SHAKA LAKA CANVAS</div><div class="ccard-desc">Draw anything — gets sent to Didi! 📧</div><div class="ccard-arr">→</div></div>
+    <div class="ccard" onclick="goTo(5)"><div class="ccard-bar"></div><div class="ccard-num">CH.006</div><div class="ccard-ico">✏️</div><div class="ccard-name">SHAKA LAKA CANVAS</div><div class="ccard-desc">Draw anything — sends to Didi 📧</div><div class="ccard-arr">→</div></div>
   </div>
 </div>
 
@@ -334,11 +271,7 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
       <span class="ph-title">THE ORIGIN ARC — TIMELINE</span>
       <button class="ph-close" onclick="goTo(1)">✕</button>
     </div>
-    <!-- TIMELINE -->
-    <div class="timeline-bar">
-      <div class="tl-inner" id="tlInner"></div>
-    </div>
-    <!-- PHOTO VIEWER -->
+    <div class="timeline-bar"><div class="tl-inner" id="tlInner"></div></div>
     <div class="photo-viewer">
       <div id="pthumbs"></div>
       <div id="pmain">
@@ -364,8 +297,8 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
     <div id="mnow">
       <div id="vinyl"></div>
       <div id="mnow-info">
-        <div id="msong">🎂 HAPPY BIRTHDAY TO YOU</div>
-        <div id="martist">// CLASSIC ANTHEM //</div>
+        <div id="msong">🎂 SELECT A SONG</div>
+        <div id="martist">// BIRTHDAY BEATS //</div>
         <div id="meq"></div>
       </div>
     </div>
@@ -401,21 +334,9 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
     </div>
     <div id="wbody">
       <span class="wish-salute">Happy Birthday, Bauaa ✦</span>
-      <p class="wish-para">
-        Wish you all the happiness this world has to offer. You are, and have always been, my
-        <span class="wish-highlight">✨ CHAMP ✨</span>
-        — and this year? This year is <strong>entirely yours.</strong>
-      </p>
-      <p class="wish-para">
-        Even when things don't go your way — and sometimes they won't —
-        just know that <em>I am always there for you.</em>
-        No matter what. No conditions. No fine print. 💪
-      </p>
-      <p class="wish-para">
-        I know you don't always trust it. But I promise you —
-        <strong>your Didi has always, always got your back.</strong>
-        That's not going anywhere.
-      </p>
+      <p class="wish-para">Wish you all the happiness this world has to offer. You are, and have always been, my <span class="wish-highlight">✨ CHAMP ✨</span> — and this year? This year is <strong>entirely yours.</strong></p>
+      <p class="wish-para">Even when things don't go your way — and sometimes they won't — just know that <em>I am always there for you.</em> No matter what. No conditions. No fine print. 💪</p>
+      <p class="wish-para">I know you don't always trust it. But I promise you — <strong>your Didi has always, always got your back.</strong> That's not going anywhere.</p>
       <div id="wlove">Love you, Kiddo ❤️</div>
     </div>
     <div id="wsign">— Your Didi 🌸</div>
@@ -427,10 +348,13 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
   <div id="dwrap">
     <div id="dhdr">
       <span id="dhdr-t">✏️ SHAKA LAKA BOOM BOOM CANVAS</span>
-      <span style="font-family:'Share Tech Mono';font-size:0.48rem;color:#e63946;letter-spacing:1px;">DRAWING GETS EMAILED TO DIDI 📧</span>
+      <span class="dhdr-badge">📧 SEND TO DIDI</span>
       <button class="ph-close" onclick="goTo(1)">✕</button>
     </div>
-    <div id="czone"><canvas id="dc"></canvas><div id="chint">DRAW YOUR BIRTHDAY WISH<br><span style="font-size:.55em;letter-spacing:3px;opacity:.6">click SEND to email it to Didi</span></div></div>
+    <div id="czone">
+      <canvas id="dc"></canvas>
+      <div id="chint">DRAW YOUR BIRTHDAY WISH ✨<br><span style="font-size:.55em;letter-spacing:2px;opacity:.5;">tap SEND TO DIDI 📧 when done</span></div>
+    </div>
     <div id="dtools">
       <span class="dtlbl">SIZE</span>
       <input type="range" class="dtr" id="dsize" min="2" max="40" value="6">
@@ -444,30 +368,31 @@ input.dtr { accent-color:#c9a84c; cursor:pointer; width:60px; }
       <div class="dtsw"    style="background:#7b2fff;" data-c="#7b2fff"></div>
       <div class="dtsw"    style="background:#00f5d4;" data-c="#00f5d4"></div>
       <div class="dtsw"    style="background:#ff6b35;" data-c="#ff6b35"></div>
-      <div class="dtsw"    style="background:#e8e8f0;" data-c="#e8e8f0"></div>
+      <div class="dtsw"    style="background:#333;"    data-c="#333333"></div>
       <div style="flex:1;min-width:4px;"></div>
       <button class="dtact" id="dclr">CLEAR</button>
       <button class="dtact" id="dsav">SAVE ↓</button>
       <button class="dtact" id="dsend">SEND TO DIDI 📧</button>
     </div>
+    <div id="send-status">// draw something and hit SEND TO DIDI to email it</div>
   </div>
 </div>
 
-<!-- Hidden Formspree form for drawing email -->
+<!-- Formspree hidden form -->
 <form id="draw-form" action="https://formspree.io/f/mkovpokp" method="POST" class="hidden-form">
-  <input type="text"  name="_subject" value="🎨 Aman drew something for you — Birthday Canvas!">
-  <input type="text"  name="message"  id="draw-msg" value="Aman sent you a birthday drawing!">
-  <input type="hidden" name="drawing_note" value="The drawing image is attached below as a data URL — paste it into browser to view, or use an online base64 image viewer.">
-  <input type="text"  name="drawing_data" id="draw-data">
+  <input type="hidden" name="_subject" value="🎨 Aman drew something for you on his Birthday Canvas!">
+  <input type="text"   name="from"     value="Birthday Canvas — Aman">
+  <textarea            name="message"  id="draw-msg"></textarea>
+  <input type="text"   name="image_data" id="draw-data">
 </form>
 
 <script>
 /* ══ ROUTING ══ */
-var pages   = document.querySelectorAll('.page');
-var nbtns   = document.querySelectorAll('.nb');
-var dotsWr  = document.getElementById('hud-dots');
-var ctrEl   = document.getElementById('hud-ctr');
-var cur     = 0;
+var pages  = document.querySelectorAll('.page');
+var nbtns  = document.querySelectorAll('.nb');
+var dotsWr = document.getElementById('hud-dots');
+var ctrEl  = document.getElementById('hud-ctr');
+var cur    = 0;
 
 for(var i=0;i<6;i++){
   (function(idx){
@@ -477,7 +402,6 @@ for(var i=0;i<6;i++){
     dotsWr.appendChild(d);
   })(i);
 }
-
 function goTo(idx){
   pages[cur].classList.remove('active');
   cur=idx;
@@ -526,97 +450,94 @@ function setEq(v){ meqEl.querySelectorAll('.meqb').forEach(function(b){ b.classL
 /* ══ PHOTOS ══ */
 var photos=[
   {src:'files/1.jpeg', tag:'ORIGIN STORY', ch:'CH.001', lbl:'THE BEGINNING'},
-  {src:'files/2.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'BABY MODE 🕶️'},
+  {src:'files/2.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'BABY MODE'},
   {src:'files/3.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'GROWING UP'},
-  {src:'files/4.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'CAKE BOSS 🎂'},
-  {src:'files/5.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'HELLO! 📞'},
-  {src:'files/6.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'GLOW UP ✨'},
+  {src:'files/4.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'CAKE BOSS'},
+  {src:'files/5.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'HELLO!'},
+  {src:'files/6.jpeg', tag:'EARLY ARC',    ch:'CH.002', lbl:'GLOW UP'},
   {src:'files/7.jpeg', tag:'PROTAGONIST',  ch:'CH.003', lbl:'PRESENT DAY'},
-  {src:'files/8.jpeg', tag:'PROTAGONIST',  ch:'CH.003', lbl:'DIDI + BAUAA ❤️'},
-  {src:'files/9.jpeg', tag:'FINAL PAGE',   ch:'CH.003', lbl:'CAMERA ROLL 📸'},
+  {src:'files/8.jpeg', tag:'PROTAGONIST',  ch:'CH.003', lbl:'DIDI + BAUAA'},
+  {src:'files/9.jpeg', tag:'FINAL PAGE',   ch:'CH.003', lbl:'CAMERA ROLL'},
 ];
-
-/* Build timeline once */
 var tlBuilt=false;
 function buildTimeline(){
-  if(tlBuilt) return; tlBuilt=true;
-  var tl=document.getElementById('tlInner');
-  tl.innerHTML='';
+  if(tlBuilt)return; tlBuilt=true;
+  var tl=document.getElementById('tlInner'); tl.innerHTML='';
   photos.forEach(function(p,i){
-    if(i>0){
-      var line=document.createElement('div');
-      line.className='tl-line'; line.id='tl-line-'+i;
-      tl.appendChild(line);
-    }
-    var step=document.createElement('div');
-    step.className='tl-step'+(i===0?' on':'');
-    step.id='tl-step-'+i;
-    step.innerHTML='<div class="tl-node"><div class="tl-dot-wrap"><div class="tl-dot"></div></div><div class="tl-ch">'+p.ch+'</div><div class="tl-lbl">'+p.lbl+'</div></div>';
-    step.onclick=(function(idx){ return function(){ setPh(idx); }; })(i);
-    tl.appendChild(step);
+    if(i>0){ var ln=document.createElement('div'); ln.className='tl-line'; ln.id='tl-line-'+i; tl.appendChild(ln); }
+    var st=document.createElement('div'); st.className='tl-step'+(i===0?' on':''); st.id='tl-step-'+i;
+    st.innerHTML='<div class="tl-node"><div class="tl-dot"></div><div class="tl-ch">'+p.ch+'</div><div class="tl-lbl">'+p.lbl+'</div></div>';
+    st.onclick=(function(idx){ return function(){ setPh(idx); }; })(i);
+    tl.appendChild(st);
   });
 }
-
 var pidx=0;
-var ptEl  =document.getElementById('pthumbs');
-var pmImg =document.getElementById('pmainimg');
-var ptagEl=document.getElementById('ptag');
-var pctrEl=document.getElementById('pctr');
-
+var ptEl=document.getElementById('pthumbs'), pmImg=document.getElementById('pmainimg');
+var ptagEl=document.getElementById('ptag'), pctrEl=document.getElementById('pctr');
 photos.forEach(function(p,i){
-  var d=document.createElement('div');
-  d.className='pthumb'+(i===0?' on':'');
+  var d=document.createElement('div'); d.className='pthumb'+(i===0?' on':'');
   var img=document.createElement('img'); img.src=p.src; img.alt='';
   var lbl=document.createElement('div'); lbl.className='pthumb-n'; lbl.textContent=(i<9?'0':'')+(i+1);
   d.appendChild(img); d.appendChild(lbl);
   d.onclick=(function(idx){ return function(){ setPh(idx); }; })(i);
   ptEl.appendChild(d);
 });
-
 function setPh(i){
-  pidx=i;
-  pmImg.style.opacity='0';
+  pidx=i; pmImg.style.opacity='0';
   setTimeout(function(){ pmImg.src=photos[i].src; pmImg.style.opacity='1'; },200);
   ptagEl.textContent=photos[i].ch+' — '+photos[i].lbl;
-  pctrEl.textContent=(i<9?'0':'')+(i+1)+' / '+String(photos.length);
+  pctrEl.textContent=(i<9?'0':'')+(i+1)+' / '+photos.length;
   ptEl.querySelectorAll('.pthumb').forEach(function(t,j){ t.classList.toggle('on',j===i); });
   ptEl.children[i].scrollIntoView({block:'nearest',behavior:'smooth'});
-  /* update timeline */
-  document.querySelectorAll('.tl-step').forEach(function(s,j){
-    s.classList.toggle('on',j===i);
-    s.classList.toggle('past',j<i);
-  });
-  for(var j=1;j<photos.length;j++){
-    var ln=document.getElementById('tl-line-'+j);
-    if(ln) ln.classList.toggle('done',j<=i);
-  }
-  /* scroll timeline to keep active in view */
-  var activeStep=document.getElementById('tl-step-'+i);
-  if(activeStep) activeStep.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  document.querySelectorAll('.tl-step').forEach(function(s,j){ s.classList.toggle('on',j===i); s.classList.toggle('past',j<i); });
+  for(var j=1;j<photos.length;j++){ var ln=document.getElementById('tl-line-'+j); if(ln) ln.classList.toggle('done',j<=i); }
+  var as=document.getElementById('tl-step-'+i); if(as) as.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
 }
 setPh(0);
 function pNav(d){ setPh((pidx+d+photos.length)%photos.length); }
 
-/* ══ MUSIC ══ */
+/* ══ MUSIC — real files from GitHub ══ */
 var songs=[
-  {e:'🎂',t:'HAPPY BIRTHDAY TO YOU',   a:'Classic Anthem',src:'music/birthday.mp3'},
-  {e:'❤️',t:'TUJHE KITNA CHAHNE LAGE', a:'Arijit Singh',  src:'music/tujhe.mp3'},
-  {e:'🧡',t:'KESARIYA',                a:'Arijit Singh',  src:'music/kesariya.mp3'},
-  {e:'🌊',t:'ASTRONAUT IN THE OCEAN',  a:'Masked Wolf',   src:'music/astronaut.mp3'},
-  {e:'✨',t:'LEVITATING',              a:'Dua Lipa',      src:'music/levitating.mp3'},
+  {
+    e:'🎂',
+    t:'HAPPY BIRTHDAY',
+    a:'Sachin-Jigar — ABCD2',
+    src:'Music/Sachin-Jigar_-_ABCD2_-_Happy_Birthday_-(mp3.pm).mp3'
+  },
+  {
+    e:'🎵',
+    t:'DIDI',
+    a:'Didi.ogg',
+    src:'Music/Didi.ogg'
+  },
+  {
+    e:'🎬',
+    t:'PAPA KEHTE HAIN',
+    a:'Srikanth',
+    src:'Music/Papa Kehte Hain Srikanth 128 Kbps.mp3'
+  },
+  {
+    e:'💛',
+    t:'TENU SANG RAKHNA',
+    a:'Jigra',
+    src:'Music/Tenu Sang Rakhna Jigra 128 Kbps.mp3'
+  },
 ];
-var midx=0,mplay=false,mloop=false,mshuf=false;
+
+var midx=0, mplay=false, mloop=false, mshuf=false;
 var aud=new Audio(); aud.volume=0.8;
-var mSEl=document.getElementById('msong'),mAEl=document.getElementById('martist');
-var mfEl=document.getElementById('mfill'),mctEl=document.getElementById('mct'),mdtEl=document.getElementById('mdt');
-var mplBtn=document.getElementById('mpl'),slEl=document.getElementById('slist');
+var mSEl=document.getElementById('msong'), mAEl=document.getElementById('martist');
+var mfEl=document.getElementById('mfill'), mctEl=document.getElementById('mct'), mdtEl=document.getElementById('mdt');
+var mplBtn=document.getElementById('mpl'), slEl=document.getElementById('slist');
+
 function mfmt(t){ if(!isFinite(t)||isNaN(t))return'0:00'; return Math.floor(t/60)+':'+(Math.floor(t%60)<10?'0':'')+Math.floor(t%60); }
 function buildSl(){
   slEl.innerHTML='';
   songs.forEach(function(s,i){
     var r=document.createElement('div'); r.className='srow'+(i===midx?' on':'');
     var n=document.createElement('span'); n.className='srow-n'; n.textContent=(i<9?'0':'')+(i+1);
-    var tl=document.createElement('span'); tl.className='srow-t'; tl.innerHTML=s.e+' '+s.t+' <span style="opacity:.35;font-size:.75em">— '+s.a+'</span>';
+    var tl=document.createElement('span'); tl.className='srow-t';
+    tl.innerHTML=s.e+' '+s.t+' <span style="opacity:.35;font-size:.75em">— '+s.a+'</span>';
     r.appendChild(n); r.appendChild(tl);
     r.onclick=(function(idx){ return function(){ loadS(idx,true); }; })(i);
     slEl.appendChild(r);
@@ -626,18 +547,18 @@ function setPl(v){ mplay=v; mplBtn.textContent=v?'⏸':'▶'; document.getElemen
 function loadS(i,auto){
   midx=i; aud.src=songs[i].src;
   mSEl.textContent=songs[i].e+' '+songs[i].t;
-  mAEl.textContent='// '+songs[i].a+' //';
+  mAEl.textContent='// '+songs[i].a.toUpperCase()+' //';
   mfEl.style.width='0%'; mctEl.textContent='0:00'; mdtEl.textContent='';
   buildSl();
-  if(auto) aud.play().then(function(){ setPl(true); }).catch(function(){ mAEl.textContent='// ADD MP3 TO music/ FOLDER //'; setPl(false); });
+  if(auto) aud.play().then(function(){ setPl(true); }).catch(function(e){ mAEl.textContent='// BROWSER BLOCKED AUTOPLAY — TAP ▶ //'; setPl(false); });
   else setPl(false);
 }
 aud.addEventListener('timeupdate',function(){ if(!aud.duration)return; mfEl.style.width=((aud.currentTime/aud.duration)*100)+'%'; mctEl.textContent=mfmt(aud.currentTime); mdtEl.textContent=mfmt(aud.duration); });
 aud.addEventListener('ended',function(){ if(mloop){aud.play();return;} if(mshuf){loadS(Math.floor(Math.random()*songs.length),true);return;} if(midx<songs.length-1)loadS(midx+1,true); else setPl(false); });
 aud.addEventListener('play', function(){ setPl(true); });
 aud.addEventListener('pause',function(){ setPl(false); });
-aud.addEventListener('error',function(){ mAEl.textContent='// ADD MP3 FILES TO music/ FOLDER //'; });
-mplBtn.onclick=function(){ mplay?aud.pause():aud.play().catch(function(){ mAEl.textContent='// ADD MP3 FILES //'; }); };
+aud.addEventListener('error',function(){ mAEl.textContent='// CHECK Music/ FOLDER ON GITHUB //'; setPl(false); });
+mplBtn.onclick=function(){ mplay?aud.pause():aud.play().catch(function(){ mAEl.textContent='// TAP SONG TITLE TO PLAY //'; }); };
 document.getElementById('mpv').onclick=function(){ if(aud.currentTime>3){aud.currentTime=0;return;} loadS(midx>0?midx-1:songs.length-1,mplay); };
 document.getElementById('mnx').onclick=function(){ loadS(mshuf?Math.floor(Math.random()*songs.length):(midx+1)%songs.length,mplay); };
 document.getElementById('mlp').onclick=function(){ mloop=!mloop; this.classList.toggle('on',mloop); };
@@ -647,23 +568,26 @@ document.getElementById('vol').oninput=function(){ aud.volume=this.value/100; do
 buildSl(); loadS(0,false);
 
 /* ══ CANVAS ══ */
-var czEl=document.getElementById('czone'),dc=document.getElementById('dc'),dctx=dc.getContext('2d');
-var chintEl=document.getElementById('chint');
-var dg=false,dera=false,dcol='#111111',dsz=6,ddrawn=false,dlx=0,dly=0;
+var czEl=document.getElementById('czone'), dc=document.getElementById('dc'), dctx=dc.getContext('2d');
+var chintEl=document.getElementById('chint'), statusEl=document.getElementById('send-status');
+var dg=false, dera=false, dcol='#111111', dsz=6, ddrawn=false, dlx=0, dly=0;
+
 function resDC(){
-  var w=czEl.offsetWidth,h=czEl.offsetHeight;
+  var w=czEl.offsetWidth, h=czEl.offsetHeight;
   if(w<2||h<2)return;
   dc.width=w; dc.height=h;
   dctx.fillStyle='#ffffff'; dctx.fillRect(0,0,w,h);
 }
 window.addEventListener('resize',function(){ if(cur===5) setTimeout(resDC,60); });
+
 function dcP(e){
-  var r=dc.getBoundingClientRect(),sx=dc.width/r.width,sy=dc.height/r.height;
-  if(e.touches)return{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};
-  return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};
+  var r=dc.getBoundingClientRect(), sx=dc.width/r.width, sy=dc.height/r.height;
+  if(e.touches)return{x:(e.touches[0].clientX-r.left)*sx, y:(e.touches[0].clientY-r.top)*sy};
+  return{x:(e.clientX-r.left)*sx, y:(e.clientY-r.top)*sy};
 }
 function startD(e){ e.preventDefault(); dg=true; var p=dcP(e); dlx=p.x; dly=p.y; if(!ddrawn){ddrawn=true;chintEl.style.display='none';} }
 function moveD(e){ if(!dg)return; var p=dcP(e); dctx.beginPath(); dctx.moveTo(dlx,dly); dctx.lineTo(p.x,p.y); dctx.strokeStyle=dera?'#fff':dcol; dctx.lineWidth=dera?dsz*3:dsz; dctx.lineCap='round'; dctx.lineJoin='round'; dctx.stroke(); dlx=p.x; dly=p.y; }
+
 dc.addEventListener('mousedown',startD);
 dc.addEventListener('mousemove',moveD);
 dc.addEventListener('mouseup',  function(){ dg=false; });
@@ -671,6 +595,7 @@ dc.addEventListener('mouseleave',function(){ dg=false; });
 dc.addEventListener('touchstart',startD,{passive:false});
 dc.addEventListener('touchmove', function(e){ e.preventDefault(); moveD(e); },{passive:false});
 dc.addEventListener('touchend',  function(){ dg=false; });
+
 document.getElementById('dpen').onclick=function(){ dera=false; document.getElementById('dpen').classList.add('on'); document.getElementById('derase').classList.remove('on'); };
 document.getElementById('derase').onclick=function(){ dera=true; document.getElementById('derase').classList.add('on'); document.getElementById('dpen').classList.remove('on'); };
 document.getElementById('dsize').oninput=function(){ dsz=+this.value; };
@@ -683,21 +608,38 @@ document.querySelectorAll('.dtsw').forEach(function(s){
     document.getElementById('derase').classList.remove('on');
   };
 });
-document.getElementById('dclr').onclick=function(){ dctx.fillStyle='#fff'; dctx.fillRect(0,0,dc.width,dc.height); ddrawn=false; chintEl.style.display='flex'; };
-document.getElementById('dsav').onclick=function(){ var a=document.createElement('a'); a.download='aman_bday_drawing.png'; a.href=dc.toDataURL(); a.click(); };
+document.getElementById('dclr').onclick=function(){ dctx.fillStyle='#fff'; dctx.fillRect(0,0,dc.width,dc.height); ddrawn=false; chintEl.style.display='flex'; statusEl.textContent='// canvas cleared'; };
+document.getElementById('dsav').onclick=function(){ var a=document.createElement('a'); a.download='aman_birthday_drawing.png'; a.href=dc.toDataURL(); a.click(); };
 
-/* ── SEND DRAWING TO DIDI VIA FORMSPREE ── */
+/* ══ SEND TO DIDI VIA FORMSPREE ══ */
 document.getElementById('dsend').onclick=function(){
   var btn=this;
-  if(!ddrawn){ alert('Draw something first! ✏️'); return; }
-  btn.textContent='SENDING...'; btn.disabled=true;
+  if(!ddrawn){ statusEl.textContent='// draw something first! ✏️'; return; }
 
-  /* Convert canvas to compressed JPEG data URL */
-  var dataUrl = dc.toDataURL('image/jpeg', 0.6);
+  btn.textContent='SENDING... ⏳'; btn.disabled=true;
+  statusEl.textContent='// compressing and sending...';
 
-  /* Formspree only handles text, so we send the data URL as text.
-     To VIEW the drawing: paste the data URL into your browser address bar. */
-  document.getElementById('draw-msg').value  = 'Aman drew you a birthday message! 🎨\n\nTo see the drawing: copy the drawing_data field and paste it into your browser address bar.';
+  /* shrink to max 600px wide for email friendliness */
+  var maxW=600;
+  var scale=Math.min(1, maxW/dc.width);
+  var tw=Math.round(dc.width*scale), th=Math.round(dc.height*scale);
+  var tmp=document.createElement('canvas'); tmp.width=tw; tmp.height=th;
+  var tctx=tmp.getContext('2d');
+  tctx.drawImage(dc,0,0,tw,th);
+  var dataUrl=tmp.toDataURL('image/jpeg',0.7);
+
+  /* build message */
+  var msg='🎂 AMAN DREW SOMETHING FOR YOU!\n\n'
+        + 'Birthday: 2025\n'
+        + 'Canvas size: '+dc.width+'×'+dc.height+'px\n\n'
+        + 'HOW TO SEE THE DRAWING:\n'
+        + '1. Copy the entire image_data field from this email\n'
+        + '2. Paste it into your browser address bar\n'
+        + '3. Press Enter — the drawing will appear!\n\n'
+        + 'OR open this link in browser:\n'+dataUrl.substring(0,120)+'...\n\n'
+        + '— Sent from Aman\'s Birthday Canvas 🎨';
+
+  document.getElementById('draw-msg').value  = msg;
   document.getElementById('draw-data').value = dataUrl;
 
   var form=document.getElementById('draw-form');
@@ -708,18 +650,24 @@ document.getElementById('dsend').onclick=function(){
   })
   .then(function(r){
     if(r.ok){
-      btn.textContent='SENT! ✓'; btn.classList.add('sent'); btn.disabled=false;
-      /* also open a new tab showing the drawing so Didi sees it immediately */
-      var win=window.open();
-      win.document.write('<html><body style="margin:0;background:#04040a;display:flex;align-items:center;justify-content:center;min-height:100vh;"><img src="'+dataUrl+'" style="max-width:100%;max-height:100vh;border:1px solid #c9a84c;"></body></html>');
+      btn.textContent='✓ SENT TO DIDI!';
+      btn.classList.add('sent');
+      btn.disabled=false;
+      statusEl.textContent='// ✓ Drawing sent to Didi\'s email! She\'ll see it soon 💌';
+      /* also open drawing preview in new tab */
+      var win=window.open('','_blank');
+      if(win){
+        win.document.write('<html><head><title>Aman\'s Birthday Drawing</title></head><body style="margin:0;background:#04040a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;"><p style="color:#c9a84c;font-size:14px;margin-bottom:12px;letter-spacing:3px;">AMAN\'S BIRTHDAY DRAWING — SENT TO DIDI ✓</p><img src="'+dataUrl+'" style="max-width:90vw;max-height:80vh;border:1px solid #c9a84c;"></body></html>');
+        win.document.close();
+      }
     } else {
-      btn.textContent='RETRY 📧'; btn.disabled=false;
-      alert('Sending failed. Try the SAVE button instead to download the image!');
+      btn.textContent='SEND TO DIDI 📧'; btn.disabled=false;
+      statusEl.textContent='// send failed — use SAVE ↓ to download the drawing instead';
     }
   })
   .catch(function(){
-    btn.textContent='RETRY 📧'; btn.disabled=false;
-    alert('Network error. Use SAVE ↓ to download the drawing instead!');
+    btn.textContent='SEND TO DIDI 📧'; btn.disabled=false;
+    statusEl.textContent='// network error — use SAVE ↓ button instead';
   });
 };
 </script>
