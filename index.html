@@ -28,28 +28,22 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
 .star{position:absolute;background:white;border-radius:50%;animation:twinkle 2s ease-in-out infinite alternate;}
 @keyframes twinkle{from{opacity:0.1;transform:scale(0.7);}to{opacity:1;transform:scale(1.3);}}
-
 .speed-burst{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.08;}
 .speed-burst svg{width:100%;height:100%;}
-
 .hero-content{position:relative;z-index:5;display:flex;align-items:center;justify-content:center;gap:60px;padding:40px 30px;width:100%;max-width:1100px;}
-
 .char-wrap{position:relative;flex-shrink:0;}
 .char-aura{position:absolute;inset:-30px;border-radius:50%;pointer-events:none;}
 .char-aura::before,.char-aura::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--yellow);animation:aura 2s ease-out infinite;opacity:0;}
 .char-aura::after{animation-delay:1s;border-color:var(--purple);}
 @keyframes aura{0%{transform:scale(0.7);opacity:0.6;}100%{transform:scale(1.5);opacity:0;}}
-
 .anime-svg{width:300px;height:auto;animation:charFloat 3s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(255,226,52,0.5));}
 @keyframes charFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
-
 .hero-text{flex:1;max-width:550px;}
 .hero-eyebrow{font-family:'Share Tech Mono',monospace;font-size:0.75rem;color:var(--blue);letter-spacing:5px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .hero-eyebrow::before{content:'';width:30px;height:2px;background:var(--blue);}
 .hero-hb{font-family:'Bangers',cursive;font-size:clamp(3rem,7vw,6rem);color:var(--yellow);letter-spacing:6px;line-height:0.95;-webkit-text-stroke:2px var(--ink);text-shadow:5px 5px 0 var(--red),10px 10px 0 var(--purple);animation:heroGlow 2s ease-in-out infinite alternate;}
 @keyframes heroGlow{from{filter:drop-shadow(0 0 10px var(--yellow));}to{filter:drop-shadow(0 0 25px var(--yellow)) drop-shadow(0 0 50px var(--orange));}}
 .hero-name{font-family:'Bangers',cursive;font-size:clamp(4rem,10vw,8rem);color:white;letter-spacing:12px;line-height:0.9;-webkit-text-stroke:3px var(--yellow);text-shadow:6px 6px 0 var(--yellow);display:block;}
-
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0;}
 .htag{font-family:'Share Tech Mono',monospace;font-size:0.7rem;padding:5px 12px;border:2px solid;letter-spacing:1px;animation:tagPop 1s ease-in-out infinite alternate;}
 .htag:nth-child(2){animation-delay:.2s}.htag:nth-child(3){animation-delay:.4s}.htag:nth-child(4){animation-delay:.6s}.htag:nth-child(5){animation-delay:.8s}
@@ -59,7 +53,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .htag.r{color:white;background:var(--red);border-color:var(--red);}
 .htag.p{color:white;background:var(--purple);border-color:var(--purple);}
 .htag.g{color:var(--ink);background:var(--green);border-color:var(--green);}
-
 .stats-box{background:rgba(255,255,255,0.05);border:2px solid rgba(255,226,52,0.2);padding:16px 18px;border-radius:4px;}
 .stats-title{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--yellow);letter-spacing:4px;margin-bottom:12px;opacity:0.7;}
 .stat-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
@@ -72,7 +65,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .eq-row{display:flex;gap:3px;align-items:flex-end;height:32px;margin-top:16px;}
 .eq-b{width:6px;border-radius:3px 3px 0 0;animation:eqBounce 0.4s ease-in-out infinite alternate;}
 @keyframes eqBounce{from{height:3px;opacity:0.4;}to{height:26px;opacity:1;}}
-
 .scroll-hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:5;text-align:center;animation:scrollBounce 1.5s ease-in-out infinite;}
 @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
 .scroll-hint span{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:var(--yellow);letter-spacing:4px;display:block;margin-bottom:4px;}
@@ -86,7 +78,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 /* ===== CONTENT ===== */
 .content{background:var(--paper);position:relative;}
 .content::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(13,13,20,0.05) 1px,transparent 1px);background-size:20px 20px;pointer-events:none;z-index:0;}
-
 .chapter{padding:35px 30px 0;position:relative;z-index:1;}
 .chapter-label{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
 .chapter-num{font-family:'Bangers',cursive;font-size:0.75rem;color:white;background:var(--red);border:2px solid var(--ink);padding:3px 10px;letter-spacing:2px;}
@@ -95,61 +86,103 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 /* ===== PHOTO CARDS ===== */
 .photo-card{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 .photo-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
-
-.img-box{
-  width:100%;
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#111;
-  display:block;
-}
-.img-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center center;
-  display:block;
-  transition:transform 0.4s ease;
-}
+.img-box{width:100%;aspect-ratio:4/3;overflow:hidden;background:#111;display:block;}
+.img-box img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.4s ease;}
 .photo-card:hover .img-box img{transform:scale(1.03);}
-
 .origin-card .img-box{aspect-ratio:16/9;}
 .origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
-
 .photo-caption{background:var(--ink);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(255,226,52,0.2);}
 .pcap-label{font-family:'Bangers',cursive;font-size:0.85rem;color:var(--yellow);letter-spacing:2px;}
 .pcap-num{width:26px;height:26px;background:var(--red);border:2px solid var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bangers',cursive;font-size:0.8rem;color:white;flex-shrink:0;}
-
 .panel-decoration{position:absolute;top:8px;right:8px;background:rgba(13,13,20,0.9);border:2px solid var(--yellow);padding:3px 8px;font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:var(--yellow);letter-spacing:2px;z-index:3;}
-
 .origin-card{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;}
 .origin-card .img-box{aspect-ratio:1/1;}
 .origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
-
 .sfx-overlay{position:absolute;top:15px;left:15px;font-family:'Bangers',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;-webkit-text-stroke:3px var(--ink);text-shadow:4px 4px 0 var(--red);letter-spacing:3px;line-height:1.1;pointer-events:none;animation:sfxPulse 2s ease-in-out infinite;}
 @keyframes sfxPulse{0%,100%{transform:scale(1) rotate(-1deg);}50%{transform:scale(1.03) rotate(1deg);}}
-
 .origin-caption{background:var(--yellow);border-top:3px solid var(--ink);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;}
 .oc-left{font-family:'Bangers',cursive;font-size:1rem;letter-spacing:3px;color:var(--ink);}
 .oc-right{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:rgba(13,13,20,0.5);letter-spacing:2px;}
-
 .photo-grid{display:grid;gap:14px;margin-bottom:0;}
 .photo-grid.cols-2{grid-template-columns:1fr 1fr;}
 .photo-grid.cols-3{grid-template-columns:1fr 1fr 1fr;}
-
 .acc-blue{border-top:4px solid var(--blue) !important;}
 .acc-purple{border-top:4px solid var(--purple) !important;}
 .acc-green{border-top:4px solid var(--green) !important;}
 .acc-orange{border-top:4px solid var(--orange) !important;}
 .acc-pink{border-top:4px solid var(--pink) !important;}
 .acc-yellow{border-top:4px solid var(--yellow) !important;}
-
 .photo-card::after{content:'';position:absolute;top:0;right:0;border-style:solid;border-width:0 18px 18px 0;border-color:transparent var(--yellow) transparent transparent;z-index:2;transition:border-width 0.2s;}
 .photo-card:hover::after{border-width:0 26px 26px 0;}
-
 .timeline-connector{display:flex;align-items:center;padding:8px 30px;position:relative;z-index:1;}
 .tc-dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--ink);flex-shrink:0;}
 .tc-line{flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0,var(--ink) 8px,transparent 8px,transparent 16px);}
+
+/* ===== MUSIC PLAYER ===== */
+.music-section{padding:35px 30px 0;position:relative;z-index:1;}
+.music-player{background:var(--ink);border:4px solid var(--yellow);box-shadow:8px 8px 0 var(--yellow);overflow:hidden;position:relative;}
+.music-player::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 25px,rgba(255,226,52,0.03) 25px,rgba(255,226,52,0.03) 50px);pointer-events:none;}
+.mp-header{padding:18px 22px 14px;border-bottom:2px solid rgba(255,226,52,0.15);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+.mp-title-wrap{display:flex;align-items:center;gap:14px;}
+.mp-vinyl{width:52px;height:52px;border-radius:50%;background:conic-gradient(#1a1a2e 0deg,#ffe234 60deg,#1a1a2e 120deg,#ff2d55 180deg,#1a1a2e 240deg,#00cfff 300deg,#1a1a2e 360deg);border:3px solid var(--yellow);flex-shrink:0;position:relative;animation:vinylSpin 3s linear infinite paused;}
+.mp-vinyl.playing{animation-play-state:running;}
+.mp-vinyl::after{content:'';position:absolute;inset:35%;border-radius:50%;background:var(--ink);border:2px solid rgba(255,226,52,0.4);}
+@keyframes vinylSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.mp-title-text{flex:1;}
+.mp-song-name{font-family:'Bangers',cursive;font-size:1.2rem;color:var(--yellow);letter-spacing:3px;line-height:1.1;display:block;}
+.mp-artist-name{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-top:3px;display:block;}
+.mp-badge{font-family:'Bangers',cursive;font-size:0.75rem;color:var(--ink);background:var(--yellow);padding:5px 12px;letter-spacing:2px;border:2px solid rgba(13,13,20,0.2);flex-shrink:0;}
+.mp-body{padding:20px 22px;position:relative;z-index:1;}
+
+/* Song list */
+.song-list{display:flex;flex-direction:column;gap:5px;margin-bottom:18px;}
+.song-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border:2px solid rgba(255,226,52,0.08);cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;background:rgba(255,255,255,0.02);}
+.song-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,226,52,0.06);transition:width 0.3s;}
+.song-item:hover::before,.song-item.active::before{width:100%;}
+.song-item.active{border-color:rgba(255,226,52,0.4);}
+.song-num{font-family:'Bangers',cursive;font-size:0.85rem;color:rgba(255,255,255,0.2);width:22px;flex-shrink:0;}
+.song-item.active .song-num{color:var(--yellow);}
+.song-eq-mini{display:flex;gap:2px;align-items:flex-end;height:16px;width:18px;flex-shrink:0;opacity:0;}
+.song-item.active .song-eq-mini{opacity:1;}
+.seq-b{width:3px;border-radius:2px 2px 0 0;background:var(--green);animation:eqBounce 0.35s ease-in-out infinite alternate;}
+.song-info{flex:1;min-width:0;}
+.song-name{font-family:'Bangers',cursive;font-size:0.95rem;color:rgba(255,255,255,0.7);letter-spacing:2px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.song-item.active .song-name{color:var(--yellow);}
+.song-artist-name{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:rgba(255,255,255,0.3);letter-spacing:1px;display:block;margin-top:2px;}
+.song-dur{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.25);flex-shrink:0;}
+
+/* Progress */
+.mp-progress-wrap{margin-bottom:16px;}
+.mp-progress-bar{width:100%;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;cursor:pointer;position:relative;margin-bottom:7px;}
+.mp-progress-fill{height:100%;background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:3px;width:0%;transition:width 0.3s linear;position:relative;}
+.mp-progress-fill::after{content:'';position:absolute;right:-5px;top:-4px;width:12px;height:12px;background:white;border-radius:50%;border:2px solid var(--yellow);box-shadow:0 0 6px rgba(255,226,52,0.5);}
+.mp-times{display:flex;justify-content:space-between;}
+.mp-time{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.35);letter-spacing:1px;}
+
+/* Controls */
+.mp-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;}
+.mp-btn{width:40px;height:40px;border:2px solid rgba(255,226,52,0.2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:rgba(255,255,255,0.5);transition:all 0.15s;border-radius:3px;}
+.mp-btn:hover{border-color:var(--yellow);color:var(--yellow);background:rgba(255,226,52,0.08);transform:translate(-1px,-1px);box-shadow:2px 2px 0 rgba(255,226,52,0.3);}
+.mp-btn.play-btn{width:56px;height:56px;background:var(--yellow);border-color:var(--yellow);color:var(--ink);font-size:1.4rem;border-radius:50%;box-shadow:0 0 15px rgba(255,226,52,0.3);}
+.mp-btn.play-btn:hover{background:var(--orange);border-color:var(--orange);box-shadow:3px 3px 0 rgba(255,107,0,0.4),0 0 20px rgba(255,107,0,0.3);}
+.mp-btn.active-btn{border-color:var(--yellow);color:var(--yellow);}
+
+/* Volume */
+.vol-wrap{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid rgba(255,226,52,0.08);}
+.vol-icon{font-size:0.95rem;}
+.vol-slider{flex:1;-webkit-appearance:none;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;cursor:pointer;}
+.vol-slider::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;background:var(--yellow);border-radius:50%;cursor:pointer;border:2px solid var(--ink);}
+.vol-label{font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:rgba(255,255,255,0.3);letter-spacing:1px;width:30px;text-align:right;}
+
+/* Visualizer */
+.mp-viz{display:flex;gap:2px;align-items:flex-end;height:30px;padding:0 22px 12px;position:relative;z-index:1;}
+.mp-viz-b{flex:1;border-radius:2px 2px 0 0;opacity:0.25;transition:opacity 0.3s;}
+.mp-viz-b.active-viz{opacity:1;}
+
+/* Upload hint */
+.mp-upload-hint{background:rgba(255,226,52,0.06);border:2px dashed rgba(255,226,52,0.2);padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.mp-hint-text{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.35);letter-spacing:1px;line-height:1.6;}
+.mp-hint-text strong{color:var(--yellow);display:block;margin-bottom:3px;}
 
 /* ===== WISH ===== */
 .wish-section{padding:35px 30px;position:relative;z-index:1;}
@@ -220,6 +253,9 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
   .photo-grid.cols-3{grid-template-columns:1fr 1fr;}
   .draw-section{padding:0 15px 25px;}
   .wish-section{padding:25px 15px;}
+  .music-section{padding:25px 15px 0;}
+  .mp-controls{gap:8px;}
+  .mp-btn.play-btn{width:48px;height:48px;font-size:1.2rem;}
 }
 @media(max-width:400px){
   .photo-grid.cols-2,.photo-grid.cols-3{grid-template-columns:1fr;}
@@ -421,44 +457,32 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       <span class="chapter-num">CH. 002</span>
       <div class="chapter-title">⚡ THE ARC — GROWING INTO THE LEGEND</div>
     </div>
-
     <div class="photo-grid cols-2" style="margin-bottom:14px;">
       <div class="photo-card p2 acc-blue">
         <div class="panel-decoration">PAGE 02</div>
-        <div class="img-box">
-          <img src="files/2.jpeg" alt="Baby Aman sunglasses">
-        </div>
+        <div class="img-box"><img src="files/2.jpeg" alt="Baby Aman sunglasses"></div>
         <div class="photo-caption"><span class="pcap-label">👶 BABY MODE 🕶️</span><span class="pcap-num">02</span></div>
       </div>
       <div class="photo-card p3 acc-purple">
         <div class="panel-decoration">PAGE 03</div>
-        <div class="img-box">
-          <img src="files/3.jpeg" alt="Kid Aman">
-        </div>
+        <div class="img-box"><img src="files/3.jpeg" alt="Kid Aman"></div>
         <div class="photo-caption"><span class="pcap-label">👦 GROWING UP ⬆️</span><span class="pcap-num">03</span></div>
       </div>
     </div>
-
     <div class="photo-grid cols-3">
       <div class="photo-card p4 acc-green">
         <div class="panel-decoration">PAGE 04</div>
-        <div class="img-box">
-          <img src="files/4.jpeg" alt="Birthday cake">
-        </div>
+        <div class="img-box"><img src="files/4.jpeg" alt="Birthday cake"></div>
         <div class="photo-caption"><span class="pcap-label">🎂 CAKE BOSS</span><span class="pcap-num">04</span></div>
       </div>
       <div class="photo-card p5 acc-orange">
         <div class="panel-decoration">PAGE 05</div>
-        <div class="img-box">
-          <img src="files/5.jpeg" alt="Hello Aman">
-        </div>
+        <div class="img-box"><img src="files/5.jpeg" alt="Hello Aman"></div>
         <div class="photo-caption"><span class="pcap-label">📞 HELLO!</span><span class="pcap-num">05</span></div>
       </div>
       <div class="photo-card p6 acc-pink">
         <div class="panel-decoration">PAGE 06</div>
-        <div class="img-box">
-          <img src="files/6.jpeg" alt="Glow up">
-        </div>
+        <div class="img-box"><img src="files/6.jpeg" alt="Glow up"></div>
         <div class="photo-caption"><span class="pcap-label">✨ GLOW UP</span><span class="pcap-num">06</span></div>
       </div>
     </div>
@@ -471,39 +495,96 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     <div class="tc-dot" style="background:var(--yellow)"></div>
   </div>
 
-  <!-- CH 003 -->
+  <!-- CH 003 — photo 7 removed -->
   <div class="chapter" style="margin-top:10px;">
     <div class="chapter-label">
       <span class="chapter-num">CH. 003</span>
       <div class="chapter-title">🌅 PROTAGONIST ERA — PRESENT DAY</div>
     </div>
-
-    <div class="photo-grid cols-2" style="margin-bottom:14px;">
-
-      <!-- ✅ THE FIX: object-position changed to "left 35%" to show face + sunset -->
-      <div class="photo-card p7 acc-yellow">
-        <div class="panel-decoration">PAGE 07</div>
-        <div class="img-box">
-          <img src="files/7.jpeg" alt="Sunset vibes" style="object-position: left 35%;">
-        </div>
-        <div class="photo-caption"><span class="pcap-label">🌇 SUNSET VIBES</span><span class="pcap-num">07</span></div>
-      </div>
-
-      <div class="photo-card p8 acc-blue">
-        <div class="panel-decoration">PAGE 08</div>
-        <div class="img-box">
-          <img src="files/8.jpeg" alt="Didi and Aman">
-        </div>
-        <div class="photo-caption"><span class="pcap-label">❤️ DIDI + BAUAA</span><span class="pcap-num">08</span></div>
-      </div>
+    <div class="photo-card p8 acc-blue" style="margin-bottom:14px;">
+      <div class="panel-decoration">PAGE 08</div>
+      <div class="img-box"><img src="files/8.jpeg" alt="Didi and Aman"></div>
+      <div class="photo-caption"><span class="pcap-label">❤️ DIDI + BAUAA</span><span class="pcap-num">08</span></div>
     </div>
-
     <div class="photo-card p9 acc-purple">
       <div class="panel-decoration">FINAL — PAGE 09</div>
-      <div class="img-box">
-        <img src="files/9.jpeg" alt="Mirror selfie">
-      </div>
+      <div class="img-box"><img src="files/9.jpeg" alt="Mirror selfie"></div>
       <div class="photo-caption"><span class="pcap-label">📸 CAMERA ROLL — PROTAGONIST CONFIRMED ✦</span><span class="pcap-num">09</span></div>
+    </div>
+  </div>
+
+  <!-- MUSIC SFX BAR -->
+  <div class="sfx-divider" style="background:var(--ink);border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow);margin-top:35px;">
+    <span class="sfx-word" style="color:var(--yellow);-webkit-text-stroke:1px #ffe234">🎵</span><span class="sfx-dot" style="color:var(--blue)">✦</span>
+    <span class="sfx-word" style="color:var(--blue);-webkit-text-stroke:1px #00cfff">BIRTHDAY</span><span class="sfx-dot" style="color:var(--red)">✦</span>
+    <span class="sfx-word" style="color:var(--red);-webkit-text-stroke:1px #ff2d55">BEATS</span><span class="sfx-dot" style="color:var(--green)">✦</span>
+    <span class="sfx-word" style="color:var(--green);-webkit-text-stroke:1px #00ffb2">LOADING</span><span class="sfx-dot" style="color:var(--purple)">✦</span>
+    <span class="sfx-word" style="color:var(--purple);-webkit-text-stroke:1px #bf5fff">🎶</span>
+  </div>
+
+  <!-- MUSIC PLAYER -->
+  <div class="music-section">
+    <div class="chapter-label">
+      <span class="chapter-num">CH. 004</span>
+      <div class="chapter-title">🎵 BIRTHDAY SOUNDTRACK — PLAY IT LOUD</div>
+    </div>
+
+    <div class="music-player">
+      <div class="mp-header">
+        <div class="mp-title-wrap">
+          <div class="mp-vinyl" id="mpVinyl"></div>
+          <div class="mp-title-text">
+            <span class="mp-song-name" id="mpSongName">🎂 HAPPY BIRTHDAY TO YOU</span>
+            <span class="mp-artist-name" id="mpArtistName">// CLASSIC BIRTHDAY ANTHEM //</span>
+          </div>
+        </div>
+        <div class="mp-badge">🎂 BDAY MIX</div>
+      </div>
+
+      <div class="mp-body">
+
+        <!-- Upload hint -->
+        <div class="mp-upload-hint">
+          <span style="font-size:1.5rem">📁</span>
+          <div class="mp-hint-text">
+            <strong>HOW TO ADD REAL SONGS</strong>
+            Create a <code style="color:var(--yellow)">music/</code> folder next to index.html · Add MP3 files · Update the <code style="color:var(--blue)">src</code> paths in the song list below · Or use YouTube links via the src field.
+          </div>
+        </div>
+
+        <!-- Song list -->
+        <div class="song-list" id="songList"></div>
+
+        <!-- Progress bar -->
+        <div class="mp-progress-wrap">
+          <div class="mp-progress-bar" id="progressBar">
+            <div class="mp-progress-fill" id="progressFill"></div>
+          </div>
+          <div class="mp-times">
+            <span class="mp-time" id="curTime">0:00</span>
+            <span class="mp-time" id="durTime">0:00</span>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="mp-controls">
+          <button class="mp-btn" id="btnShuffle" title="Shuffle">🔀</button>
+          <button class="mp-btn" id="btnPrev" title="Previous">⏮</button>
+          <button class="mp-btn play-btn" id="btnPlay" title="Play/Pause">▶</button>
+          <button class="mp-btn" id="btnNext" title="Next">⏭</button>
+          <button class="mp-btn" id="btnLoop" title="Loop">🔁</button>
+        </div>
+
+        <!-- Volume -->
+        <div class="vol-wrap">
+          <span class="vol-icon">🔊</span>
+          <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="80">
+          <span class="vol-label" id="volLabel">80%</span>
+        </div>
+      </div>
+
+      <!-- Visualizer -->
+      <div class="mp-viz" id="mpViz"></div>
     </div>
   </div>
 
@@ -605,7 +686,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 </div>
 
 <script>
-// Stars
+// ===== STARS =====
 const sf=document.getElementById('stars');
 for(let i=0;i<100;i++){
   const s=document.createElement('div');s.className='star';
@@ -614,7 +695,7 @@ for(let i=0;i<100;i++){
   sf.appendChild(s);
 }
 
-// EQ bars
+// ===== EQ BARS =====
 const eqColors=['#00cfff','#ffe234','#ff2d55','#bf5fff','#00ffb2','#ff6b00','#ff79c6','#ffe234'];
 function makeEq(id,count){
   const el=document.getElementById(id);if(!el)return;
@@ -627,7 +708,7 @@ function makeEq(id,count){
 }
 makeEq('heroEq',18);makeEq('feq',20);
 
-// Canvas
+// ===== CANVAS =====
 const canvas=document.getElementById('drawCanvas');
 const ctx=canvas.getContext('2d');
 const hint=document.getElementById('canvasHint');
@@ -672,6 +753,143 @@ document.querySelectorAll('.cdot').forEach(d=>{
 });
 document.getElementById('clrBtn').addEventListener('click',()=>{ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);drawn=false;hint.style.display='block';});
 document.getElementById('savBtn').addEventListener('click',()=>{const a=document.createElement('a');a.download='aman_bday_wish.png';a.href=canvas.toDataURL();a.click();});
+
+// ===== MUSIC PLAYER =====
+// 🎵 TO USE REAL SONGS:
+// 1. Create a "music" folder next to index.html
+// 2. Add your MP3 files there (e.g. music/song1.mp3)
+// 3. Update the "src" field below for each song
+const songs = [
+  { title:'HAPPY BIRTHDAY TO YOU',  artist:'Classic Birthday Anthem', emoji:'🎂', src:'music/birthday.mp3' },
+  { title:'TUJHE KITNA CHAHNE LAGE',artist:'Arijit Singh · Kabir Singh', emoji:'❤️', src:'music/tujhe.mp3' },
+  { title:'KESARIYA',               artist:'Arijit Singh · Brahmastra', emoji:'🧡', src:'music/kesariya.mp3' },
+  { title:'ASTRONAUT IN THE OCEAN', artist:'Masked Wolf',               emoji:'🌊', src:'music/astronaut.mp3' },
+  { title:'LEVITATING',             artist:'Dua Lipa',                  emoji:'✨', src:'music/levitating.mp3' },
+];
+
+let curIdx=0, isPlaying=false, isLoop=false, isShuffle=false;
+const audio=new Audio();
+audio.volume=0.8;
+
+const songListEl=document.getElementById('songList');
+const mpVinyl=document.getElementById('mpVinyl');
+const mpSongName=document.getElementById('mpSongName');
+const mpArtistName=document.getElementById('mpArtistName');
+const btnPlay=document.getElementById('btnPlay');
+const progressFill=document.getElementById('progressFill');
+const curTimeEl=document.getElementById('curTime');
+const durTimeEl=document.getElementById('durTime');
+const progressBar=document.getElementById('progressBar');
+
+// Build visualizer
+const mpVizEl=document.getElementById('mpViz');
+const vizCols=['#00cfff','#ffe234','#ff2d55','#bf5fff','#00ffb2','#ff6b00','#ff79c6','#ffe234','#00cfff','#ffe234','#ff2d55','#bf5fff','#00ffb2','#ff6b00','#ff79c6','#ffe234','#00cfff','#ffe234','#ff2d55','#bf5fff'];
+for(let i=0;i<20;i++){
+  const b=document.createElement('div');b.className='mp-viz-b';
+  b.style.cssText=`background:${vizCols[i]};animation:eqBounce ${0.28+Math.random()*0.35}s ease-in-out infinite alternate;animation-delay:${i*0.055}s;`;
+  mpVizEl.appendChild(b);
+}
+function setViz(on){document.querySelectorAll('.mp-viz-b').forEach(b=>b.classList.toggle('active-viz',on));}
+
+function buildList(){
+  songListEl.innerHTML='';
+  songs.forEach((s,i)=>{
+    const el=document.createElement('div');
+    el.className='song-item'+(i===curIdx?' active':'');
+    el.innerHTML=`
+      <span class="song-num">${String(i+1).padStart(2,'0')}</span>
+      <div class="song-eq-mini">
+        <div class="seq-b" style="animation-delay:0s"></div>
+        <div class="seq-b" style="animation-delay:0.12s"></div>
+        <div class="seq-b" style="animation-delay:0.24s"></div>
+      </div>
+      <div class="song-info">
+        <span class="song-name">${s.emoji} ${s.title}</span>
+        <span class="song-artist-name">${s.artist}</span>
+      </div>`;
+    el.addEventListener('click',()=>loadSong(i,true));
+    songListEl.appendChild(el);
+  });
+}
+
+function fmt(t){if(isNaN(t)||!isFinite(t))return'0:00';const m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
+
+function setPlayState(val){
+  isPlaying=val;
+  btnPlay.textContent=val?'⏸':'▶';
+  mpVinyl.classList.toggle('playing',val);
+  setViz(val);
+}
+
+function loadSong(idx,autoplay=false){
+  curIdx=idx;
+  const s=songs[idx];
+  audio.src=s.src;
+  mpSongName.textContent=s.emoji+' '+s.title;
+  mpArtistName.textContent='// '+s.artist+' //';
+  buildList();
+  progressFill.style.width='0%';
+  curTimeEl.textContent='0:00';
+  durTimeEl.textContent='';
+  if(autoplay){
+    audio.play()
+      .then(()=>setPlayState(true))
+      .catch(()=>{ mpArtistName.textContent='// ADD MP3 TO music/ FOLDER TO PLAY //'; setPlayState(false); });
+  } else { setPlayState(false); }
+}
+
+audio.addEventListener('timeupdate',()=>{
+  if(!audio.duration)return;
+  progressFill.style.width=((audio.currentTime/audio.duration)*100)+'%';
+  curTimeEl.textContent=fmt(audio.currentTime);
+  durTimeEl.textContent=fmt(audio.duration);
+});
+
+audio.addEventListener('ended',()=>{
+  if(isLoop){audio.play();return;}
+  if(isShuffle){loadSong(Math.floor(Math.random()*songs.length),true);return;}
+  if(curIdx<songs.length-1){loadSong(curIdx+1,true);}else{setPlayState(false);}
+});
+audio.addEventListener('play',()=>setPlayState(true));
+audio.addEventListener('pause',()=>setPlayState(false));
+audio.addEventListener('error',()=>{mpArtistName.textContent='// ADD MP3 FILES TO music/ FOLDER //';}); 
+
+btnPlay.addEventListener('click',()=>{
+  if(isPlaying){audio.pause();}
+  else{audio.play().catch(()=>{mpArtistName.textContent='// ADD MP3 FILES TO music/ FOLDER TO PLAY //';}); }
+});
+
+document.getElementById('btnPrev').addEventListener('click',()=>{
+  if(audio.currentTime>3){audio.currentTime=0;return;}
+  loadSong(curIdx>0?curIdx-1:songs.length-1,isPlaying);
+});
+document.getElementById('btnNext').addEventListener('click',()=>{
+  loadSong(isShuffle?Math.floor(Math.random()*songs.length):(curIdx+1)%songs.length,isPlaying);
+});
+
+const btnLoop=document.getElementById('btnLoop');
+const btnShuffle=document.getElementById('btnShuffle');
+btnLoop.addEventListener('click',()=>{
+  isLoop=!isLoop;
+  btnLoop.classList.toggle('active-btn',isLoop);
+});
+btnShuffle.addEventListener('click',()=>{
+  isShuffle=!isShuffle;
+  btnShuffle.classList.toggle('active-btn',isShuffle);
+});
+
+progressBar.addEventListener('click',function(e){
+  if(!audio.duration)return;
+  const r=this.getBoundingClientRect();
+  audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration;
+});
+
+const volSlider=document.getElementById('volSlider');
+const volLabel=document.getElementById('volLabel');
+volSlider.addEventListener('input',function(){audio.volume=this.value/100;volLabel.textContent=this.value+'%';});
+
+buildList();
+loadSong(0,false);
 </script>
 </body>
 </html>
