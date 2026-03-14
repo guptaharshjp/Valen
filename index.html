@@ -98,11 +98,16 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .photo-card{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 .photo-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
 
-/* The image wrapper — fixed height, image fills it */
-.img-box{width:100%;overflow:hidden;position:relative;background:#0a0a10;}
+/* The image wrapper — fixed height, image fills it absolutely */
+.img-box{width:100%;overflow:hidden;background:#0a0a10;}
 
-/* ALL images: cover the box, no stretching */
+/* ALL images: absolute fill inside fixed-height box */
+.img-box{
+  position:relative !important;
+}
 .img-box img{
+  position:absolute;
+  top:0; left:0;
   width:100%;
   height:100%;
   object-fit:cover;
@@ -159,7 +164,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 /* Origin card: B&W hero panel */
 .origin-card{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;}
 .origin-card .img-box{height:420px;}
-.origin-card img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
+.origin-card img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
 
 .sfx-overlay{position:absolute;top:15px;left:15px;font-family:'Bangers',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;-webkit-text-stroke:3px var(--ink);text-shadow:4px 4px 0 var(--red);letter-spacing:3px;line-height:1.1;pointer-events:none;animation:sfxPulse 2s ease-in-out infinite;}
 @keyframes sfxPulse{0%,100%{transform:scale(1) rotate(-1deg);}50%{transform:scale(1.03) rotate(1deg);}}
@@ -441,7 +446,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
     <div class="origin-card">
       <div class="img-box" style="height:420px;">
-        <img src="ANA/1.jpeg" alt="The very beginning" style="object-fit:cover;object-position:center center;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
+        <img src="ANA/1.jpeg" alt="The very beginning" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
       </div>
       <div class="sfx-overlay">THE BEGINNING<br>OF A LEGEND ✦</div>
       <div class="origin-caption">
