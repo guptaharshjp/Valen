@@ -92,13 +92,10 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .chapter-num{font-family:'Bangers',cursive;font-size:0.75rem;color:white;background:var(--red);border:2px solid var(--ink);padding:3px 10px;letter-spacing:2px;}
 .chapter-title{font-family:'Bangers',cursive;font-size:1.4rem;letter-spacing:4px;color:var(--ink);border-left:5px solid var(--red);padding-left:12px;}
 
-/* ===== PHOTO CARDS — THE BIG FIX ===== */
-
-/* Every photo uses a fixed-height box with cover + custom position */
+/* ===== PHOTO CARDS ===== */
 .photo-card{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 .photo-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
 
-/* ALL photos cropped to 800x600 — uniform 4:3 grid */
 .img-box{
   width:100%;
   aspect-ratio:4/3;
@@ -116,18 +113,15 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 }
 .photo-card:hover .img-box img{transform:scale(1.03);}
 
-/* Origin panel wider */
 .origin-card .img-box{aspect-ratio:16/9;}
 .origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
 
-/* Caption bar */
 .photo-caption{background:var(--ink);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(255,226,52,0.2);}
 .pcap-label{font-family:'Bangers',cursive;font-size:0.85rem;color:var(--yellow);letter-spacing:2px;}
 .pcap-num{width:26px;height:26px;background:var(--red);border:2px solid var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bangers',cursive;font-size:0.8rem;color:white;flex-shrink:0;}
 
 .panel-decoration{position:absolute;top:8px;right:8px;background:rgba(13,13,20,0.9);border:2px solid var(--yellow);padding:3px 8px;font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:var(--yellow);letter-spacing:2px;z-index:3;}
 
-/* Origin card: B&W hero panel */
 .origin-card{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;}
 .origin-card .img-box{aspect-ratio:1/1;}
 .origin-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
@@ -139,12 +133,10 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .oc-left{font-family:'Bangers',cursive;font-size:1rem;letter-spacing:3px;color:var(--ink);}
 .oc-right{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:rgba(13,13,20,0.5);letter-spacing:2px;}
 
-/* Grids */
 .photo-grid{display:grid;gap:14px;margin-bottom:0;}
 .photo-grid.cols-2{grid-template-columns:1fr 1fr;}
 .photo-grid.cols-3{grid-template-columns:1fr 1fr 1fr;}
 
-/* Accent borders */
 .acc-blue{border-top:4px solid var(--blue) !important;}
 .acc-purple{border-top:4px solid var(--purple) !important;}
 .acc-green{border-top:4px solid var(--green) !important;}
@@ -152,11 +144,9 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .acc-pink{border-top:4px solid var(--pink) !important;}
 .acc-yellow{border-top:4px solid var(--yellow) !important;}
 
-/* Fold corner */
 .photo-card::after{content:'';position:absolute;top:0;right:0;border-style:solid;border-width:0 18px 18px 0;border-color:transparent var(--yellow) transparent transparent;z-index:2;transition:border-width 0.2s;}
 .photo-card:hover::after{border-width:0 26px 26px 0;}
 
-/* Timeline */
 .timeline-connector{display:flex;align-items:center;padding:8px 30px;position:relative;z-index:1;}
 .tc-dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--ink);flex-shrink:0;}
 .tc-line{flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0,var(--ink) 8px,transparent 8px,transparent 16px);}
@@ -230,7 +220,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
   .photo-grid.cols-3{grid-template-columns:1fr 1fr;}
   .draw-section{padding:0 15px 25px;}
   .wish-section{padding:25px 15px;}
-  /* mobile: aspect-ratio handles sizing automatically */
 }
 @media(max-width:400px){
   .photo-grid.cols-2,.photo-grid.cols-3{grid-template-columns:1fr;}
@@ -400,7 +389,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 <!-- CONTENT -->
 <div class="content">
 
-  <!-- CH 001: B&W ORIGIN — shows both kids fully -->
+  <!-- CH 001 -->
   <div class="chapter">
     <div class="chapter-label">
       <span class="chapter-num">CH. 001</span>
@@ -434,7 +423,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
 
     <div class="photo-grid cols-2" style="margin-bottom:14px;">
-      <!-- P2: Baby with sunglasses — face at center -->
       <div class="photo-card p2 acc-blue">
         <div class="panel-decoration">PAGE 02</div>
         <div class="img-box">
@@ -442,7 +430,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
         </div>
         <div class="photo-caption"><span class="pcap-label">👶 BABY MODE 🕶️</span><span class="pcap-num">02</span></div>
       </div>
-      <!-- P3: Kid portrait — was showing only hair top, shift down to show face -->
       <div class="photo-card p3 acc-purple">
         <div class="panel-decoration">PAGE 03</div>
         <div class="img-box">
@@ -453,7 +440,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
 
     <div class="photo-grid cols-3">
-      <!-- P4: Kid with birthday cake — face at top -->
       <div class="photo-card p4 acc-green">
         <div class="panel-decoration">PAGE 04</div>
         <div class="img-box">
@@ -461,7 +447,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
         </div>
         <div class="photo-caption"><span class="pcap-label">🎂 CAKE BOSS</span><span class="pcap-num">04</span></div>
       </div>
-      <!-- P5: Toddler Hello — centered -->
       <div class="photo-card p5 acc-orange">
         <div class="panel-decoration">PAGE 05</div>
         <div class="img-box">
@@ -469,7 +454,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
         </div>
         <div class="photo-caption"><span class="pcap-label">📞 HELLO!</span><span class="pcap-num">05</span></div>
       </div>
-      <!-- P6: Kid purple shirt — face at top -->
       <div class="photo-card p6 acc-pink">
         <div class="panel-decoration">PAGE 06</div>
         <div class="img-box">
@@ -495,15 +479,16 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
 
     <div class="photo-grid cols-2" style="margin-bottom:14px;">
-      <!-- P7: Sunset — was showing blank sky, position to bottom to show person + sunset -->
+
+      <!-- ✅ THE FIX: object-position changed to "left 35%" to show face + sunset -->
       <div class="photo-card p7 acc-yellow">
         <div class="panel-decoration">PAGE 07</div>
         <div class="img-box">
-          <img src="files/7.jpeg" alt="Sunset vibes">
+          <img src="files/7.jpeg" alt="Sunset vibes" style="object-position: left 35%;">
         </div>
         <div class="photo-caption"><span class="pcap-label">🌇 SUNSET VIBES</span><span class="pcap-num">07</span></div>
       </div>
-      <!-- P8: Didi + Aman birthday banner — faces at top -->
+
       <div class="photo-card p8 acc-blue">
         <div class="panel-decoration">PAGE 08</div>
         <div class="img-box">
@@ -513,7 +498,6 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
       </div>
     </div>
 
-    <!-- P9: Mirror selfie — faces at top portion -->
     <div class="photo-card p9 acc-purple">
       <div class="panel-decoration">FINAL — PAGE 09</div>
       <div class="img-box">
