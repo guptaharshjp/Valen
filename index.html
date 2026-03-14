@@ -98,61 +98,54 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 .photo-card{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 .photo-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
 
-/* The image wrapper — fixed height, image fills it absolutely */
-.img-box{width:100%;overflow:hidden;background:#0a0a10;}
-
-/* ALL images: absolute fill inside fixed-height box */
+/* The image wrapper */
 .img-box{
-  position:relative !important;
+  width:100%;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
+
+/* CONTAIN = full image always visible, no crop ever */
 .img-box img{
-  position:absolute;
-  top:0; left:0;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
   transition:transform 0.4s ease;
 }
-.photo-card:hover .img-box img{transform:scale(1.04);}
+.photo-card:hover .img-box img{transform:scale(1.02);}
 
-/* --- PER-PHOTO positioning — aspect-ratio based (no cropping) --- */
+/* --- PER-PHOTO sizes --- */
 
-/* Photo 1: SQUARE (1:1) — both kids fully visible */
-.p1 .img-box{aspect-ratio:1/1;height:auto;}
-.p1 img{object-position:center top;}
+/* Photo 1: square image */
+.p1 .img-box{aspect-ratio:1/1;}
 
-/* Photo 2: PORTRAIT (3:4) */
-.p2 .img-box{aspect-ratio:3/4;height:auto;}
-.p2 img{object-position:center 40%;}
+/* Photo 2 */
+.p2 .img-box{aspect-ratio:3/4;}
 
-/* Photo 3: PORTRAIT (3:4) */
-.p3 .img-box{aspect-ratio:3/4;height:auto;}
-.p3 img{object-position:center 35%;}
+/* Photo 3 */
+.p3 .img-box{aspect-ratio:3/4;}
 
-/* Photo 4: PORTRAIT (3:4) */
-.p4 .img-box{aspect-ratio:3/4;height:auto;}
-.p4 img{object-position:center 20%;}
+/* Photo 4 */
+.p4 .img-box{aspect-ratio:3/4;}
 
-/* Photo 5: PORTRAIT (3:4) */
-.p5 .img-box{aspect-ratio:3/4;height:auto;}
-.p5 img{object-position:center center;}
+/* Photo 5 */
+.p5 .img-box{aspect-ratio:3/4;}
 
-/* Photo 6: PORTRAIT (3:4) */
-.p6 .img-box{aspect-ratio:3/4;height:auto;}
-.p6 img{object-position:center 15%;}
+/* Photo 6 */
+.p6 .img-box{aspect-ratio:3/4;}
 
-/* Photo 7: LANDSCAPE (4:3) — person at bottom */
-.p7 .img-box{aspect-ratio:4/3;height:auto;}
-.p7 img{object-position:center 75%;}
+/* Photo 7: landscape */
+.p7 .img-box{aspect-ratio:4/3;}
 
-/* Photo 8: PORTRAIT (3:4) */
-.p8 .img-box{aspect-ratio:3/4;height:auto;}
-.p8 img{object-position:center 10%;}
+/* Photo 8 */
+.p8 .img-box{aspect-ratio:3/4;}
 
-/* Photo 9: PORTRAIT (3:4) */
-.p9 .img-box{aspect-ratio:3/4;height:auto;}
-.p9 img{object-position:center 15%;}
+/* Photo 9 */
+.p9 .img-box{aspect-ratio:3/4;}
 
 /* Caption bar */
 .photo-caption{background:var(--ink);padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid rgba(255,226,52,0.2);}
@@ -163,8 +156,8 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
 
 /* Origin card: B&W hero panel */
 .origin-card{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--ink);position:relative;overflow:hidden;}
-.origin-card .img-box{aspect-ratio:1/1;height:auto;}
-.origin-card img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
+.origin-card .img-box{aspect-ratio:1/1;}
+.origin-card img{width:100%;height:100%;object-fit:contain;display:block;filter:grayscale(100%) contrast(1.2) brightness(1.1);}
 
 .sfx-overlay{position:absolute;top:15px;left:15px;font-family:'Bangers',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;-webkit-text-stroke:3px var(--ink);text-shadow:4px 4px 0 var(--red);letter-spacing:3px;line-height:1.1;pointer-events:none;animation:sfxPulse 2s ease-in-out infinite;}
 @keyframes sfxPulse{0%,100%{transform:scale(1) rotate(-1deg);}50%{transform:scale(1.03) rotate(1deg);}}
@@ -442,7 +435,7 @@ body{background:var(--ink);font-family:'Nunito',sans-serif;overflow-x:hidden;}
     </div>
     <div class="origin-card">
       <div class="img-box" style="height:420px;">
-        <img src="ANA/1.jpeg" alt="The very beginning" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
+        <img src="ANA/1.jpeg" alt="The very beginning" style="width:100%;height:100%;object-fit:contain;filter:grayscale(100%) contrast(1.2) brightness(1.1);">
       </div>
       <div class="sfx-overlay">THE BEGINNING<br>OF A LEGEND ✦</div>
       <div class="origin-caption">
